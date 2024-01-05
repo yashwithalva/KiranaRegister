@@ -3,9 +3,8 @@ package com.dbtest.yashwith.model;
 import lombok.Data;
 
 @Data
-public class UpdateUser {
+public class UpdateUserInfo {
     private String name;
     private int age;
-    private String phoneNumber;
-    private String role;
+    private String phone;
 }
