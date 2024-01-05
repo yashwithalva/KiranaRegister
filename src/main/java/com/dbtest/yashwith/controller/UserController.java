@@ -4,10 +4,11 @@ import com.dbtest.yashwith.entities.User;
 import com.dbtest.yashwith.model.LoginRequest;
 import com.dbtest.yashwith.model.UpdatePassword;
 import com.dbtest.yashwith.model.UpdateUserInfo;
-import com.dbtest.yashwith.model.UpdateUserRole;
-import com.dbtest.yashwith.request.Wip_usernamePassword;
-import com.dbtest.yashwith.response.Wip_responseLogin;
+import com.dbtest.yashwith.model.UserDTO;
 import com.dbtest.yashwith.service.UserService;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.juli.logging.Log;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,14 +16,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-import static org.hibernate.engine.jdbc.Size.length;
-
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
     private final UserService userService;
 
+    @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -51,7 +52,8 @@ public class UserController {
     public ResponseEntity<String> createNewUser(@RequestBody User user){
         User createdUser = userService.createUser(user);
         if(createdUser != null){
-            return ResponseEntity.status(HttpStatus.CREATED).body(createdUser.getId());
+            String userId = createdUser.getId();
+            return ResponseEntity.status(HttpStatus.CREATED).body(userId);
         }
         return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("Could not create user");
     }
@@ -64,11 +66,11 @@ public class UserController {
      */
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginRequest loginRequest) {
-        if(!isLoginRequestValid(loginRequest)){
+        if (!isLoginRequestValid(loginRequest)) {
             return ResponseEntity.badRequest().build();
         }
         User login = userService.userLogin(loginRequest);
-        if(login == null){
+        if (login == null) {
             return ResponseEntity.badRequest().build();
         }
 
@@ -84,14 +86,21 @@ public class UserController {
      * @return userDTO
      */
     @GetMapping("/{userId}")
-    public ResponseEntity<?> getUserInfo(@RequestParam String userId){
+    public ResponseEntity<?> getUserInfo(@PathVariable String userId){
         // TODO: Convert user to USER DTO.
-        Optional<User> userInfo = userService.getUserInformationById(userId);
-        if(userInfo.isPresent()){
+        log.error("User Id: " + userId);
+
+        User userInfo = userService.getUserInformationById(userId).orElse(null);
+
+        UserDTO userDTO = new UserDTO();
+
+
+        if(userInfo != null){
             return ResponseEntity.ok().body(userInfo);
         }
         return ResponseEntity.badRequest().build();
     }
+
 
     /**
      * Update user by id.
@@ -101,14 +110,20 @@ public class UserController {
      */
     @PostMapping("/{userId}/update")
     public ResponseEntity<?> updateUserById(@RequestParam String userId, @RequestBody UpdateUserInfo updateUserInfo){
-        if(updateUserInfo == null) return ResponseEntity.badRequest().build();
-        if(userService.updateUserInfomation(userId, updateUserInfo)){
+        if (updateUserInfo == null) return ResponseEntity.badRequest().build();
+        if (userService.updateUserInfomation(userId, updateUserInfo)){
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.badRequest().build();
     }
 
 
+    /**
+     * Update password using userId
+     * @param userId  id of the current authorized user.
+     * @param updatePassword old and new password.
+     * @return Returns 200 if successfull.
+     */
     @PostMapping("/{userId}/password")
     public ResponseEntity<?> updateUserPassword(@RequestParam String userId, @RequestBody UpdatePassword updatePassword){
         if(updatePassword == null || updatePassword.getNewpassword() == null || updatePassword.getOldpassword() == null)
@@ -119,6 +134,7 @@ public class UserController {
         }
         return ResponseEntity.badRequest().build();
     }
+
 
     /**
      * Utils function

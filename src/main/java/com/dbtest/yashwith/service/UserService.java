@@ -3,7 +3,7 @@ package com.dbtest.yashwith.service;
 import com.dbtest.yashwith.entities.User;
 import com.dbtest.yashwith.model.*;
 import com.dbtest.yashwith.repository.UserRepository;
-import com.dbtest.yashwith.response.Wip_responseLogin;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
@@ -15,9 +15,11 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    @Autowired
     public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
     }
+
 
     /**
      * Get all users
@@ -99,14 +101,13 @@ public class UserService {
      */
     public Boolean updateUserPassword(String userId, UpdatePassword passwords){
         Optional<User> user = getUserInformationById(userId);
-        if(user.isEmpty()){
+        if (user.isEmpty()){
             return false;
         }
 
-        if(user.get().getPassword().contentEquals(passwords.getOldpassword())){
+        if (user.get().getPassword().contentEquals(passwords.getOldpassword())){
             user.get().setPassword(passwords.getNewpassword());
-        }
-        else{
+        } else{
             return false;
         }
 
@@ -120,7 +121,13 @@ public class UserService {
      * @return True if successfull update.
      */
     public Boolean updateUserRole(UpdateUserRole updateRole){
-        //
+        Optional<User> user = userRepository.findById(updateRole.getId());
+        if(user.isEmpty()){
+            return false;
+        }
+
+        user.get().setRole(updateRole.getRole());
+        return true;
     }
 
 }
