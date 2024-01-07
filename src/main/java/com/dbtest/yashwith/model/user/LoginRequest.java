@@ -1,4 +1,4 @@
-package com.dbtest.yashwith.model;
+package com.dbtest.yashwith.model.user;
 
 import lombok.Data;
 

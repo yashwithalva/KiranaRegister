@@ -1,17 +1,25 @@
 package com.dbtest.yashwith.entities;
 
-import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
-
+import com.dbtest.yashwith.enums.Currency;
+import com.dbtest.yashwith.enums.TransactionType;
 import javax.persistence.Id;
-import java.util.Date;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("transaction")
 @Data
-public class Transaction {
+@EqualsAndHashCode(callSuper = true)
+@CompoundIndex(
+        def = "{'originalAmount' : 0.0, 'currency' : Currency.USD}",
+        name = "amount_currency")
+public class Transaction extends DateAudit {
     @Id private String id;
-    private Date timeStamp;
     private String role;
-    private String transactionType;
+    private TransactionType transactionType;
+    private float originalAmount;
+    private Currency currency;
     private float amount;
+    private String userId;
 }
