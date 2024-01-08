@@ -22,12 +22,6 @@ public class User extends DateAudit {
     private String firstName;
     private String lastName;
 
-    public enum Role {
-        USER,
-        ADMIN,
-        EMPLOYEE
-    };
-
     private List<Role> roles;
 
     @Indexed(unique = true)

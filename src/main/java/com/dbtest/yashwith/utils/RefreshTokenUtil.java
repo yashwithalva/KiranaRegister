@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RefreshTokenUtils {
+public class RefreshTokenUtil {
     @Value("${auth.jwt.refresh.expiration.time}")
     private long refreshTokenExpirationTime;
 
@@ -100,8 +100,7 @@ public class RefreshTokenUtils {
      *
      * @return
      */
-    public RefreshTokenModel acessTokenSaveRefreshToken(
-            String userId, String phoneNumber, String deviceId, String authReqId) {
+    public RefreshTokenModel acessTokenSaveRefreshToken(String userId, String phoneNumber) {
         String token = UUID.randomUUID().toString();
         String tokenHash = TokenHashUtil.getSHAString(token);
         RefreshTokenMongo refreshToken = new RefreshTokenMongo();
@@ -115,5 +114,29 @@ public class RefreshTokenUtils {
         RefreshTokenModel refreshTokenModel =
                 new RefreshTokenModel(refreshToken.getToken(), refreshToken.getId());
         return refreshTokenModel;
+    }
+
+    /**
+     * Checks if session is valid using refreshToken time and currentTime.
+     *
+     * @param userId
+     * @return
+     */
+    public boolean isSessionValid(String userId) {
+        Date currentDate = new Date();
+        Optional<RefreshTokenMongo> refreshTokenMongo =
+                SystemDaoHelper.getInstance()
+                        .getRefreshTokenMongoDao()
+                        .getRefreshTokenByUserId(userId);
+
+        if (refreshTokenMongo.isEmpty()) {
+            return false;
+        } else {
+            if (refreshTokenMongo.get().getTimeout().after(currentDate)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }

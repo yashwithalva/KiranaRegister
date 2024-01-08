@@ -1,6 +1,7 @@
 package com.dbtest.yashwith.entities;
 
 import com.dbtest.yashwith.enums.Currency;
+import com.dbtest.yashwith.enums.Role;
 import com.dbtest.yashwith.enums.TransactionType;
 import javax.persistence.Id;
 import lombok.Data;
@@ -16,7 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
         name = "amount_currency")
 public class Transaction extends DateAudit {
     @Id private String id;
-    private String role;
+    private Role role;
     private TransactionType transactionType;
     private float originalAmount;
     private Currency currency;

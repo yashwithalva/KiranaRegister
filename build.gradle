@@ -37,9 +37,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
+	// lombok
+	compileOnly 'org.projectlombok:lombok:1.18.22'
+	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
 	// MapStruct
 	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+	implementation 'org.modelmapper:modelmapper:2.4.4'
 
 	// jwt
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
@@ -48,10 +53,6 @@ dependencies {
 	implementation 'com.google.guava:guava:32.0.1-jre'
 	implementation 'joda-time:joda-time:2.10.10'
 
-
-
-	compileOnly 'org.projectlombok:lombok:1.18.22'
-	annotationProcessor 'org.projectlombok:lombok:1.18.22'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }

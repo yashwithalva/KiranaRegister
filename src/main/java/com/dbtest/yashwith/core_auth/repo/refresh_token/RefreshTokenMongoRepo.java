@@ -1,4 +1,4 @@
-package com.dbtest.yashwith.core_auth.repo.refreshtoken;
+package com.dbtest.yashwith.core_auth.repo.refresh_token;
 
 import com.dbtest.yashwith.core_auth.entities.RefreshTokenMongo;
 import java.util.Date;
@@ -30,13 +30,11 @@ interface RefreshTokenMongoRepo extends MongoRepository<RefreshTokenMongo, Strin
 
     Boolean existsByEmail(String email);
 
-    int countDistinctPhoneNumberAndTimeoutGreaterThan(String phoneNumber, Date date);
+    int countDistinctEmailByPhoneNumberAndTimeoutGreaterThan(
+            String phoneNumber, Date date, String email);
 
-    int countDistinctEmailAndTimeoutGreaterThan(String email, Date date);
-
-    int countDistinctUserIdAndTimeoutGreaterThan(String userId, Date date);
-
-    int countByUserIdIn(String userId);
+    int countDistinctUserIdByPhoneNumberAndTimeoutGreaterThan(
+            String phoneNumber, Date date, String userId);
 
     void deleteBy(RefreshTokenMongo refreshTokenMongo);
 

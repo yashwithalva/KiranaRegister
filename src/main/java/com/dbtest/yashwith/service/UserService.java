@@ -1,7 +1,6 @@
 package com.dbtest.yashwith.service;
 
 import com.dbtest.yashwith.entities.User;
-import com.dbtest.yashwith.mappers.UserMapper;
 import com.dbtest.yashwith.model.user.LoginRequest;
 import com.dbtest.yashwith.model.user.UserProfile;
 import com.dbtest.yashwith.repository.UserRepository;
@@ -15,12 +14,10 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final UserMapper userMapper;
 
     @Autowired
-    public UserService(UserRepository userRepository, UserMapper userMapper) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.userMapper = userMapper;
     }
 
     /**

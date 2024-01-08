@@ -97,7 +97,7 @@ public class UserController {
      * Update password using userId
      *
      * @param userId id of the current authorized user.
-     * @param updatePassword old and new password.
+     * @param password old and new password.
      * @return Returns 200 if successfull.
      */
     @PostMapping("/{userId}/password")

@@ -1,6 +1,6 @@
 package com.dbtest.yashwith.model.user;
 
-import com.dbtest.yashwith.entities.User;
+import com.dbtest.yashwith.enums.Role;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import lombok.Data;
 public class TokenPayload {
     private String userId;
     private String phoneNumber;
-    private User.Role role;
-    private List<User.Role> allowedRoles = new ArrayList<>();
+    private Role role;
+    private List<Role> allowedRoles = new ArrayList<>();
     private String email;
 }

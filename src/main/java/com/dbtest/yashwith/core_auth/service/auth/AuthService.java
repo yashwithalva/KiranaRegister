@@ -1,4 +1,4 @@
-package com.dbtest.yashwith.service.auth;
+package com.dbtest.yashwith.core_auth.service.auth;
 
 import com.dbtest.yashwith.model.auth.AuthRequest;
 import com.dbtest.yashwith.model.auth.UserCreateRequest;

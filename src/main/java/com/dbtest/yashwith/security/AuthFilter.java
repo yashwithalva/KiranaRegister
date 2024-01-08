@@ -3,9 +3,12 @@ package com.dbtest.yashwith.security;
 import com.dbtest.yashwith.exception.TokenException;
 import com.dbtest.yashwith.response.ApiResponse;
 import com.dbtest.yashwith.utils.DateUtils;
+import com.dbtest.yashwith.utils.RefreshTokenUtil;
 import com.dbtest.yashwith.utils.SystemUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.istack.NotNull;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +20,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.ThreadContext;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.StringUtils;
@@ -31,9 +37,7 @@ public class AuthFilter extends OncePerRequestFilter {
     private final TokenUtils tokenUtils;
     private final UserInfoService userInfoService;
     private final HttpServletRequest httpServletRequest;
-    // private final RefreshTokenUtil refreshTokenUtil;
-    // private final TranslationService translationService;
-    // private final HTTPRequestService httpRequestService;
+    private final RefreshTokenUtil refreshTokenUtil;
 
     @Value("#{'${urls.exclude.filter}'.split(',')}")
     List<String> excludeFilter;
@@ -50,7 +54,7 @@ public class AuthFilter extends OncePerRequestFilter {
             @NotNull FilterChain filterChain)
             throws ServletException, IOException {
         String jwt = null;
-        logger.debug("Running inside once per request AuthFilter ----> " + request.getRequestURI());
+        logger.debug("Running inside once per request AuthFilter : " + request.getRequestURI());
         try {
             jwt = getJwtFromHeader(request);
             if (StringUtils.hasText(jwt)) {
@@ -66,6 +70,7 @@ public class AuthFilter extends OncePerRequestFilter {
                     throw new TokenException("InvalidToken", "Invalid userId in token", "403");
                 }
 
+                System.out.println("Still Running 3!");
                 // User details must be set into web context.
                 UserDetails userDetails = userInfoService.loadUserByUsername(jwt);
                 UserInfo userInfo = (UserInfo) userDetails;
@@ -79,16 +84,78 @@ public class AuthFilter extends OncePerRequestFilter {
                         tokenUtils.getIssuedAt(jwt).after(sessionCheckDate);
 
                 if (eligibleForSessionCheck
-                        && !refreshTokenUtil.isSessionValid(
-                                userId,
-                                userInfo.getTokenPayload().getAppId(),
-                                userInfo.getTokenPayload().getSid())) {
+                        && !refreshTokenUtil.isSessionValid(userInfo.getUserId())) {
                     log.info("invalid token : " + jwt);
                     throw new TokenException("InvalidToken", "User forced logged out", "403");
                 }
+
+                // Adding authentication to security context.
+                UsernamePasswordAuthenticationToken authentication =
+                        new UsernamePasswordAuthenticationToken(
+                                userDetails, null, userDetails.getAuthorities());
+                authentication.setDetails(
+                        new WebAuthenticationDetailsSource().buildDetails(request));
+
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+                System.out.println("Completed running systems.");
+                filterChain.doFilter(request, response);
+            } else {
+                throw new TokenException("Token is not", "Token is not present", "401");
             }
+        } catch (TokenException e) {
+            log.error(
+                    "Token exception "
+                            + request.getRequestURI()
+                            + " returning error code "
+                            + 403
+                            + e.getMessage());
+            var apiResponse = e.getApiResponse();
+            createErrorResponse(apiResponse.getErrorCode(), apiResponse.getError(), null, response);
+
+        } catch (JwtException e) {
+            String message;
+            String errorCode = "403";
+            log.error("JwtException " + e.getMessage());
+            if (e instanceof ExpiredJwtException) {
+                message = "User access token expired";
+                errorCode = "401";
+                log.error(
+                        "ExpiredJwtException "
+                                + request.getRequestURI()
+                                + " returning error code "
+                                + 401
+                                + " "
+                                + e.getMessage());
+            } else if (jwt == null) {
+                message = "No JWT token submitted";
+                log.error(
+                        "jwt is null "
+                                + request.getRequestURI()
+                                + " returning error code "
+                                + 403
+                                + " "
+                                + e.getMessage());
+            } else {
+                log.error(
+                        "jwt is not null & not expired"
+                                + request.getRequestURI()
+                                + "returning error code "
+                                + 403
+                                + " "
+                                + e.getMessage());
+                message = "Invalid JWT token submitted";
+            }
+            createErrorResponse(errorCode, message, message, response);
         } catch (Exception e) {
-            log.error(e.toString());
+            log.error(
+                    "Token exception "
+                            + request.getRequestURI()
+                            + " returning error code"
+                            + 403
+                            + e.getMessage());
+            var apiResponse = new ApiResponse();
+            createErrorResponse(
+                    apiResponse.getErrorCode(), "Some invalid exception", null, response);
         }
     }
 
@@ -101,7 +168,10 @@ public class AuthFilter extends OncePerRequestFilter {
      */
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        return excludeFilter.stream().anyMatch(p -> pathMatcher.match(p, request.getRequestURI()));
+        String path = request.getRequestURI();
+        boolean isCreate = path.equals("/api/v1/auth/create");
+        boolean isLogin = path.equals("/api/v1/auth/login");
+        return isCreate || isLogin;
     }
 
     /**
@@ -150,28 +220,5 @@ public class AuthFilter extends OncePerRequestFilter {
      * @param request - request
      * @param response - response
      * @return response
-     *     <p>public ApiResponse logout(HttpServletRequest request, HttpServletResponse response) {
-     *     String bearerToken = request.getHeader("Authorization"); String currentDeviceId =
-     *     request.getParameter("deviceId"); String refreshToken =
-     *     request.getParameter("refreshToken"); String token = null; ApiResponse apiResponse = new
-     *     ApiResponse(); if (bearerToken != null) { if (StringUtils.hasText(bearerToken) &&
-     *     bearerToken.startsWith("Bearer ")) { token = bearerToken.substring(7); log.info( "token
-     *     not present in cache - in logout " + request.getRequestURI() + " token " + bearerToken +
-     *     "returning error code " + 200); // removiing this code as it is causing null pointer
-     *     exception // UserInfo userInfo = // (UserInfo) // SecurityContextHolder.getContext() //
-     *     .getAuthentication() // .getPrincipal(); String sessionId =
-     *     tokenUtils.extractSessionId(token); refreshTokenUtil.removeTokenForLogout(sessionId);
-     *     apiResponse.setErrorCode("200");
-     *     apiResponse.setData(translationService.getTranslation("auth.log.out")); return
-     *     apiResponse; } } else { log.info( "token not present in header - in logout " +
-     *     request.getRequestURI() + "returning error code " + 200);
-     *     apiResponse.setErrorCode("200"); // apiResponse.setSuccess(false); //
-     *     apiResponse.setErrorMessage("Invalid request"); return apiResponse; }
-     *     apiResponse.setErrorCode("200");
-     *     apiResponse.setData(translationService.getTranslation("auth.log.out")); if
-     *     (currentDeviceId == null) {
-     *     apiResponse.setData(translationService.getTranslation("auth.log.out")); } else {
-     *     apiResponse.setData(translationService.getTranslation("auth.log.out.devices")); } return
-     *     apiResponse; }
      */
 }

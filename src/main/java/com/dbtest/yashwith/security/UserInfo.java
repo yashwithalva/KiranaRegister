@@ -1,6 +1,7 @@
 package com.dbtest.yashwith.security;
 
 import com.dbtest.yashwith.entities.User;
+import com.dbtest.yashwith.enums.Role;
 import com.dbtest.yashwith.model.user.TokenPayload;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -46,7 +47,7 @@ public class UserInfo implements UserDetails {
             if (tokenPayload.getAllowedRoles() == null) {
                 return authorities;
             }
-            for (User.Role role : this.tokenPayload.getAllowedRoles()) {
+            for (Role role : this.tokenPayload.getAllowedRoles()) {
                 authorityList.add(new SimpleGrantedAuthority(role.toString()));
             }
             this.authorities = authorityList;

@@ -1,6 +1,6 @@
 package com.dbtest.yashwith.config;
 
-import com.dbtest.yashwith.core_auth.repo.refreshtoken.RefreshTokenMongoDao;
+import com.dbtest.yashwith.core_auth.repo.refresh_token.RefreshTokenMongoDao;
 import javax.annotation.PostConstruct;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;

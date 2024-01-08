@@ -1,4 +1,4 @@
-package com.dbtest.yashwith.core_auth.repo.refreshtoken;
+package com.dbtest.yashwith.core_auth.repo.refresh_token;
 
 import com.dbtest.yashwith.core_auth.entities.RefreshTokenMongo;
 import java.util.Date;
@@ -159,19 +159,6 @@ public class RefreshTokenMongoDao {
     }
 
     /**
-     * Count all distinct phoneNumbers greater than a specific date.
-     *
-     * @param phoneNumber the search param
-     * @param date Date
-     * @return an integer value specifying the unique count of all device ids registered by phone
-     *     number
-     */
-    public int countDistinctPhoneNumberAndTimeoutGreaterThan(String phoneNumber, Date date) {
-        return refreshTokenMongoRepo.countDistinctPhoneNumberAndTimeoutGreaterThan(
-                phoneNumber, date);
-    }
-
-    /**
      * Count all distinct email greater than a specific date.
      *
      * @param email the search param
@@ -179,8 +166,10 @@ public class RefreshTokenMongoDao {
      * @return an integer value specifying the unique count of all device ids registered by phone
      *     number
      */
-    public int countDistinctEmailAndTimeoutGreaterThan(String email, Date date) {
-        return refreshTokenMongoRepo.countDistinctEmailAndTimeoutGreaterThan(email, date);
+    public int countDistinctEmailByPhoneNumberAndTimeoutGreaterThan(
+            String phoneNumber, Date date, String email) {
+        return refreshTokenMongoRepo.countDistinctEmailByPhoneNumberAndTimeoutGreaterThan(
+                phoneNumber, date, email);
     }
 
     /**
@@ -191,12 +180,10 @@ public class RefreshTokenMongoDao {
      * @return an integer value specifying the unique count of all device ids registered by phone
      *     number
      */
-    public int countDistinctUserIdAndTimeoutGreaterThan(String userId, Date date) {
-        return refreshTokenMongoRepo.countDistinctUserIdAndTimeoutGreaterThan(userId, date);
-    }
-
-    public int countByUserIDIn(String userId) {
-        return refreshTokenMongoRepo.countByUserIdIn(userId);
+    public int countDistinctUserIdByPhoneNumberAndTimeoutGreaterThan(
+            String phoneNumber, Date date, String userId) {
+        return refreshTokenMongoRepo.countDistinctUserIdByPhoneNumberAndTimeoutGreaterThan(
+                phoneNumber, date, userId);
     }
 
     /**
