@@ -1,18 +1,23 @@
 package com.dbtest.yashwith.security;
 
+import com.dbtest.yashwith.entities.User;
+import com.dbtest.yashwith.enums.Role;
 import com.dbtest.yashwith.model.user.TokenPayload;
 import com.dbtest.yashwith.utils.SystemUtils;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class TokenUtils {
 
     private static final String KIRANA_CLAIMS_KEY = "https://kirana.app/jwt/claims";
@@ -26,9 +31,6 @@ public class TokenUtils {
     @Value("${auth.jwt.refresh.expiration.time}")
     private long refreshTokenExpirationTime;
 
-    @Value("${auth.jwt.switch.user.expiration.time}")
-    private long switchUserExpirationTime;
-
     @Value("${auth.jwt.access.secret.old}")
     private String oldSecret;
 
@@ -37,12 +39,6 @@ public class TokenUtils {
 
     @Value("${spring.profiles.active}")
     private String env;
-
-    @Value("${auth.jwt.hasura.version}")
-    private String jwtHasuraVersion;
-
-    @Value("${auth.jwt.version}")
-    private String jwtVersion;
 
     /**
      * Extract userId from jwt.
@@ -70,8 +66,18 @@ public class TokenUtils {
      * @param token - jwt
      * @return Date format
      */
-    public Date getIssuedAt(String token) {
+    public Date extractIssuedAt(String token) {
         return extractClaim(token, Claims::getIssuedAt);
+    }
+
+    /**
+     * Extract session id stored in claims
+     *
+     * @param token - jwt
+     * @return String representing sessionId.
+     */
+    public String extractSessionId(String token) {
+        return (String) getClaims(token).get("sid");
     }
 
     /**
@@ -102,7 +108,7 @@ public class TokenUtils {
             tokenPayload.setUserId(userId);
             return tokenPayload;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.toString());
         }
 
         return new TokenPayload();
@@ -121,7 +127,17 @@ public class TokenUtils {
     }
 
     /**
-     * Generate Token with additional claims
+     * Is token expired
+     *
+     * @param token - jwt
+     * @return boolean True if token expired.
+     */
+    public boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
+    }
+
+    /**
+     * Do Not Use It. Can be used for generating token with custom claims.
      *
      * @param extraClaims - Additional claim.
      * @param userDetails - User details
@@ -137,8 +153,71 @@ public class TokenUtils {
                 .compact();
     }
 
-    // TODO AUTH 1: generateAdminToken()
-    // TODO AUTH 2: generateUserToken()
+    /**
+     * Create a token for the Role User
+     *
+     * @param user  User information
+     * @param sessionId  ObjectId of the refreshTokenMongo
+     * @return jwt token with claims
+     */
+    public String createToken(User user, String sessionId) {
+        Date now = new Date();
+        Date expiryDate = new Date(now.getTime() + accessTokenExpirationTime);
+        return Jwts.builder()
+                .setSubject(user.getId())
+                .setIssuedAt(new Date())
+                .setIssuer(env)
+                .setExpiration(expiryDate)
+                .addClaims(addMetaDataToClaim(user, Role.USER, sessionId))
+                .signWith(SignatureAlgorithm.HS512, newSecret.getBytes())
+                .compact();
+    }
+
+    /**
+     * Create token with any role.
+     *
+     * @param user - User information
+     * @param role - Role availed by the user.
+     * @param sessionId - ObjectId of the refreshToken.
+     * @return
+     */
+    public String createTokenWithRole(User user, Role role, String sessionId) {
+        Date now = new Date();
+        Date expiryDate = new Date(now.getTime() + adminTokenExpirationTime);
+        return Jwts.builder()
+                .setSubject(user.getId())
+                .setIssuedAt(new Date())
+                .setIssuer(env)
+                .setExpiration(expiryDate)
+                .setClaims(addMetaDataToClaim(user, role, sessionId))
+                .signWith(SignatureAlgorithm.HS512, newSecret.getBytes())
+                .compact();
+    }
+
+    /**
+     * Additional Metadata added under the key name of KIRAN_CLAIMS reference: Hasura authorization
+     * payload.
+     *
+     * @param user - user for whom token is being created
+     * @param role - Role of the user
+     * @param sessionId - ObjectId of the RefreshTokenMongo
+     * @return String to Object Map.
+     */
+    Map<String, Object> addMetaDataToClaim(User user, Role role, String sessionId) {
+        var metaData = new HashMap<String, Object>();
+        TokenPayload tokenPayload = new TokenPayload();
+        tokenPayload.setUserId(user.getId());
+        tokenPayload.setEmail(user.getEmail());
+        tokenPayload.setPhoneNumber(user.getPhoneNumber());
+        tokenPayload.setRole(role);
+        tokenPayload.setAllowedRoles(user.getRoles());
+        tokenPayload.setSid(sessionId);
+        ObjectMapper mapper = SystemUtils.getInstance().getObjectMapper();
+        Map<String, Object> claims =
+                mapper.convertValue(tokenPayload, new TypeReference<Map<String, Object>>() {});
+        metaData.put(KIRANA_CLAIMS_KEY, claims);
+        return metaData;
+    }
 
     private Claims extractAllClaims(String token) {
         return parseAndValidate(token).getBody();
@@ -150,10 +229,6 @@ public class TokenUtils {
         } catch (SignatureException e) {
             return Jwts.parser().setSigningKey(oldSecret.getBytes()).parseClaimsJws(token);
         }
-    }
-
-    public boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
     }
 
     /**

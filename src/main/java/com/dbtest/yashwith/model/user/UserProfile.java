@@ -1,8 +1,10 @@
 package com.dbtest.yashwith.model.user;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserProfile {
     private String firstName;
     private String lastName;
@@ -19,4 +21,6 @@ public class UserProfile {
         OTHER,
         PREFER_NOT_TO_SAY
     }
+
+    public long createdAt;
 }

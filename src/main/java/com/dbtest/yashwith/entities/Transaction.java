@@ -19,8 +19,8 @@ public class Transaction extends DateAudit {
     @Id private String id;
     private Role role;
     private TransactionType transactionType;
-    private float originalAmount;
+    private double originalAmount;
     private Currency currency;
-    private float amount;
+    private double amount;
     private String userId;
 }

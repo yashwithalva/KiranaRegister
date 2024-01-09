@@ -1,5 +1,6 @@
 package com.dbtest.yashwith.controller;
 
+import com.dbtest.yashwith.model.transaction.TransactionCreateRequest;
 import com.dbtest.yashwith.model.transaction.TransactionDto;
 import com.dbtest.yashwith.service.TransactionService;
 import java.util.List;
@@ -32,9 +33,10 @@ public class TransactionController {
      */
     @PostMapping("/makePayment")
     public ResponseEntity<String> createNewTransaction(
-            @RequestBody TransactionDto transactionDto,
+            @RequestBody TransactionCreateRequest transactionCreateRequest,
             @RequestHeader("Authorization") String jwtToken) {
-        String transactionId = transactionService.createNewTransaction(transactionDto, jwtToken);
+        String transactionId =
+                transactionService.createNewTransaction(transactionCreateRequest, jwtToken);
         if (!StringUtils.hasText(transactionId)) {
             return ResponseEntity.badRequest().body("Couldn't create a new Transaction");
         } else {

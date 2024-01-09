@@ -2,7 +2,7 @@ package com.dbtest.yashwith.security;
 
 import com.dbtest.yashwith.exception.TokenException;
 import com.dbtest.yashwith.response.ApiResponse;
-import com.dbtest.yashwith.utils.DateUtils;
+import com.dbtest.yashwith.utils.DateUtil;
 import com.dbtest.yashwith.utils.RefreshTokenUtil;
 import com.dbtest.yashwith.utils.SystemUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,6 +47,17 @@ public class AuthFilter extends OncePerRequestFilter {
 
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
+    /**
+     * Auth filter
+     *
+     * @see <a
+     *     href="https://stackoverflow.com/questions/67424274/what-is-springs-securitycontext-behavior-in-terms-of-threads-or-different-reque">ThreadContext</a>
+     * @param request
+     * @param response
+     * @param filterChain
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doFilterInternal(
             @NotNull HttpServletRequest request,
@@ -70,18 +81,18 @@ public class AuthFilter extends OncePerRequestFilter {
                     throw new TokenException("InvalidToken", "Invalid userId in token", "403");
                 }
 
-                System.out.println("Still Running 3!");
-                // User details must be set into web context.
                 UserDetails userDetails = userInfoService.loadUserByUsername(jwt);
                 UserInfo userInfo = (UserInfo) userDetails;
-                userInfo.setAppVer(httpServletRequest.getHeader("appVer"));
+
+                // Can set addition details such as appVer, os
 
                 Date sessionCheckDate =
-                        new Date(
-                                DateUtils.getDateFromString(authSessionIdDate, "dd-MM-yyyy HH:mm"));
+                        new Date(DateUtil.getDateFromString(authSessionIdDate, "dd-MM-yyyy HH:mm"));
 
+                // Eligible if extracted Jwt is > sessionCheckDate(3rd May 2023)
+                // It is always true.
                 boolean eligibleForSessionCheck =
-                        tokenUtils.getIssuedAt(jwt).after(sessionCheckDate);
+                        tokenUtils.extractIssuedAt(jwt).after(sessionCheckDate);
 
                 if (eligibleForSessionCheck
                         && !refreshTokenUtil.isSessionValid(userInfo.getUserId())) {
@@ -93,15 +104,19 @@ public class AuthFilter extends OncePerRequestFilter {
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(
                                 userDetails, null, userDetails.getAuthorities());
+
+                // Convert HttpServletRequest to WebAuthenticationDetails class.
                 authentication.setDetails(
                         new WebAuthenticationDetailsSource().buildDetails(request));
 
+                // Stores principal, credentials and authorities.
                 SecurityContextHolder.getContext().setAuthentication(authentication);
-                System.out.println("Completed running systems.");
-                filterChain.doFilter(request, response);
-            } else {
-                throw new TokenException("Token is not", "Token is not present", "401");
             }
+            filterChain.doFilter(request, response);
+
+            ThreadContext.remove("userId");
+            ThreadContext.clearAll();
+
         } catch (TokenException e) {
             log.error(
                     "Token exception "
@@ -111,7 +126,6 @@ public class AuthFilter extends OncePerRequestFilter {
                             + e.getMessage());
             var apiResponse = e.getApiResponse();
             createErrorResponse(apiResponse.getErrorCode(), apiResponse.getError(), null, response);
-
         } catch (JwtException e) {
             String message;
             String errorCode = "403";
@@ -168,10 +182,13 @@ public class AuthFilter extends OncePerRequestFilter {
      */
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        // TODO : Needs refactoring using antPathMatcher
+
         String path = request.getRequestURI();
         boolean isCreate = path.equals("/api/v1/auth/create");
         boolean isLogin = path.equals("/api/v1/auth/login");
-        return isCreate || isLogin;
+        boolean isGetAccess = path.equals("/api/v1/refresh/getAccessToken");
+        return isCreate || isLogin || isGetAccess;
     }
 
     /**
@@ -214,11 +231,43 @@ public class AuthFilter extends OncePerRequestFilter {
     }
 
     /**
-     * TODO : Not implemented yet Logs out a token also accepts device id - for giving the ability
-     * to user to logout from other device removes access token & refresh token from redis
+     * Logout of the app. Use jwt token to get SessionId and delete from mongo repository.
      *
      * @param request - request
      * @param response - response
      * @return response
      */
+    public ApiResponse logout(HttpServletRequest request, HttpServletResponse response) {
+        String bearerToken = request.getHeader("Authorization");
+        String refreshToken = request.getParameter("refreshToken");
+        String token = null;
+        ApiResponse apiResponse = new ApiResponse();
+        if (bearerToken != null) {
+            if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
+                token = bearerToken.substring(7);
+                log.info(
+                        "token not present in cache - in logout "
+                                + request.getRequestURI()
+                                + " token "
+                                + bearerToken
+                                + "returning error code "
+                                + 200);
+                // Can't borrow sercurity Context holder. It gives an error.
+                String sessionId = tokenUtils.extractSessionId(token);
+                refreshTokenUtil.removeTokenForLogout(sessionId);
+                apiResponse.setErrorCode("200");
+                return apiResponse;
+            }
+        } else {
+            log.info(
+                    "token not present in header - in logout "
+                            + request.getRequestURI()
+                            + "returning error code "
+                            + 200);
+            apiResponse.setErrorCode("200");
+            return apiResponse;
+        }
+        apiResponse.setErrorCode("200");
+        return apiResponse;
+    }
 }

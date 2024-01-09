@@ -14,4 +14,5 @@ public class TokenPayload {
     private Role role;
     private List<Role> allowedRoles = new ArrayList<>();
     private String email;
+    private String sid;
 }

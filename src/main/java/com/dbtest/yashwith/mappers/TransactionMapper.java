@@ -1,6 +1,7 @@
 package com.dbtest.yashwith.mappers;
 
 import com.dbtest.yashwith.entities.Transaction;
+import com.dbtest.yashwith.model.transaction.TransactionCreateRequest;
 import com.dbtest.yashwith.model.transaction.TransactionDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -28,4 +29,10 @@ public interface TransactionMapper {
     @Mapping(target = "currency", source = "currency")
     @Mapping(target = "amount", source = "amount")
     TransactionDto transactionToDto(Transaction transaction);
+
+    @Mapping(target = "role", source = "role")
+    @Mapping(target = "transactionType", source = "transactionType")
+    @Mapping(target = "originalAmount", source = "originalAmount")
+    @Mapping(target = "currency", source = "currency")
+    Transaction transactionRequestToTransaction(TransactionCreateRequest transactionCreateRequest);
 }

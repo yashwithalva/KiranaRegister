@@ -1,128 +1,35 @@
-2024-01-08 11:06:47.748  WARN 1218 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 11:06:47.808  WARN 1218 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 11:06:48.213 DEBUG 1218 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 11:06:48.258 DEBUG 1218 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 11:06:48.273 DEBUG 1218 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 11:06:48.279 DEBUG 1218 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 11:08:16.726  INFO 1218 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-08 11:08:16.727 DEBUG 1218 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-08 11:08:16.727 DEBUG 1218 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-08 11:08:16.727 DEBUG 1218 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-08 11:08:16.728 DEBUG 1218 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@45c90a05
-2024-01-08 11:08:16.729 DEBUG 1218 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@464400b3
-2024-01-08 11:08:16.729 DEBUG 1218 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-08 11:08:16.729  INFO 1218 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-01-08 11:08:16.747 DEBUG 1218 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
-2024-01-08 11:08:16.750 DEBUG 1218 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
-2024-01-08 11:08:16.799 DEBUG 1218 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, phoneN (truncated)...]
-2024-01-08 11:08:16.976 DEBUG 1218 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 11:08:16.982 DEBUG 1218 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=BasicAuthResponse(), view=null, status=null, error=null, errorMessage (truncated)...]
-2024-01-08 11:08:16.989 DEBUG 1218 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Failed to complete request: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.dbtest.yashwith.core_auth.model.BasicAuthResponse]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.dbtest.yashwith.core_auth.model.BasicAuthResponse and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.dbtest.yashwith.response.ApiResponse["data"])
-2024-01-08 11:08:16.990 ERROR 1218 --- [http-nio-3000-exec-2] com.dbtest.yashwith.security.AuthFilter  : org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.dbtest.yashwith.core_auth.model.BasicAuthResponse]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.dbtest.yashwith.core_auth.model.BasicAuthResponse and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.dbtest.yashwith.response.ApiResponse["data"])
-2024-01-08 11:13:44.647  WARN 1291 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 11:13:44.706  WARN 1291 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 11:13:45.080 DEBUG 1291 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 11:13:45.129 DEBUG 1291 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 11:13:45.149 DEBUG 1291 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 11:13:45.157 DEBUG 1291 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 11:13:59.475  WARN 1295 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 11:13:59.537  WARN 1295 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 11:13:59.882 DEBUG 1295 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 11:13:59.926 DEBUG 1295 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 11:13:59.946 DEBUG 1295 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 11:13:59.952 DEBUG 1295 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 11:14:37.772  INFO 1295 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-08 11:14:37.773 DEBUG 1295 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-08 11:14:37.773 DEBUG 1295 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-08 11:14:37.773 DEBUG 1295 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-08 11:14:37.774 DEBUG 1295 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@df7d1d4
-2024-01-08 11:14:37.775 DEBUG 1295 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@37d6dddc
-2024-01-08 11:14:37.775 DEBUG 1295 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-08 11:14:37.775  INFO 1295 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-01-08 11:14:37.791 DEBUG 1295 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
-2024-01-08 11:14:37.794 DEBUG 1295 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
-2024-01-08 11:14:37.839 DEBUG 1295 --- [http-nio-3000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, phoneN (truncated)...]
-2024-01-08 11:14:38.007 DEBUG 1295 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 11:14:38.012 DEBUG 1295 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=BasicAuthResponse(), view=null, status=null, error=null, errorMessage (truncated)...]
-2024-01-08 11:14:38.018 DEBUG 1295 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.dbtest.yashwith.core_auth.model.BasicAuthResponse]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.dbtest.yashwith.core_auth.model.BasicAuthResponse and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.dbtest.yashwith.response.ApiResponse["data"])
-2024-01-08 11:14:38.019 ERROR 1295 --- [http-nio-3000-exec-1] com.dbtest.yashwith.security.AuthFilter  : org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.dbtest.yashwith.core_auth.model.BasicAuthResponse]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.dbtest.yashwith.core_auth.model.BasicAuthResponse and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.dbtest.yashwith.response.ApiResponse["data"])
-2024-01-08 12:03:14.361  WARN 2051 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:03:14.418  WARN 2051 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:03:14.752 DEBUG 2051 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 12:03:14.793 DEBUG 2051 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 12:03:14.808 DEBUG 2051 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 12:03:14.814 DEBUG 2051 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 12:03:21.167  INFO 2051 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-08 12:03:21.168 DEBUG 2051 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-08 12:03:21.168 DEBUG 2051 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-08 12:03:21.168 DEBUG 2051 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-08 12:03:21.169 DEBUG 2051 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6fced25c
-2024-01-08 12:03:21.169 DEBUG 2051 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6ce2e079
-2024-01-08 12:03:21.169 DEBUG 2051 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-08 12:03:21.169  INFO 2051 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-08 12:03:21.185 ERROR 2051 --- [http-nio-3000-exec-1] com.dbtest.yashwith.security.AuthFilter  : Token exception /api/v1/auth/create returning error code 403null
-2024-01-08 12:08:18.778  WARN 2092 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:08:18.839  WARN 2092 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:08:19.181 DEBUG 2092 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 12:08:19.230 DEBUG 2092 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 12:08:19.247 DEBUG 2092 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 12:08:19.254 DEBUG 2092 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 12:09:23.755  WARN 2109 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:09:23.823  WARN 2109 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:09:24.221 DEBUG 2109 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 12:09:24.268 DEBUG 2109 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 12:09:24.283 DEBUG 2109 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 12:09:24.289 DEBUG 2109 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 12:09:34.790  INFO 2109 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-08 12:09:34.790 DEBUG 2109 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-08 12:09:34.790 DEBUG 2109 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-08 12:09:34.790 DEBUG 2109 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-08 12:09:34.792 DEBUG 2109 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@778c2e7c
-2024-01-08 12:09:34.792 DEBUG 2109 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1640f20f
-2024-01-08 12:09:34.792 DEBUG 2109 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-08 12:09:34.792  INFO 2109 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-01-08 12:09:34.806 ERROR 2109 --- [http-nio-3000-exec-1] com.dbtest.yashwith.security.AuthFilter  : Token exception /api/v1/auth/create returning error code 403null
-2024-01-08 12:14:07.486  WARN 2170 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:14:07.556  WARN 2170 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:14:07.920 DEBUG 2170 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 12:14:07.967 DEBUG 2170 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 12:14:07.982 DEBUG 2170 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 12:14:07.988 DEBUG 2170 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 12:14:11.655  INFO 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-08 12:14:11.656 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-08 12:14:11.656 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-08 12:14:11.656 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-08 12:14:11.657 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6f8ac8d5
-2024-01-08 12:14:11.657 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@60ed0b9d
-2024-01-08 12:14:11.658 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-08 12:14:11.658  INFO 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-01-08 12:14:11.671 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
-2024-01-08 12:14:11.673 DEBUG 2170 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
-2024-01-08 12:14:11.718 DEBUG 2170 --- [http-nio-3000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, phoneN (truncated)...]
-2024-01-08 12:14:11.918 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 12:14:11.929 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=BasicAuthResponse(), view=null, status=null, error=null, errorMessage (truncated)...]
-2024-01-08 12:14:11.936 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.dbtest.yashwith.core_auth.model.BasicAuthResponse]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.dbtest.yashwith.core_auth.model.BasicAuthResponse and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.dbtest.yashwith.response.ApiResponse["data"])
-2024-01-08 12:14:11.941 ERROR 2170 --- [http-nio-3000-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class com.dbtest.yashwith.core_auth.model.BasicAuthResponse]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.dbtest.yashwith.core_auth.model.BasicAuthResponse and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.dbtest.yashwith.response.ApiResponse["data"])] with root cause
+2024-01-09 13:55:45.466  WARN 2672 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 13:55:45.552  WARN 2672 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 13:55:45.942 DEBUG 2672 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-01-09 13:55:45.984 DEBUG 2672 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-01-09 13:55:45.997 DEBUG 2672 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-01-09 13:55:46.002 DEBUG 2672 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-09 13:56:02.277  INFO 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-09 13:56:02.278 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-01-09 13:56:02.278 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-01-09 13:56:02.278 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-01-09 13:56:02.279 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7ff09659
+2024-01-09 13:56:02.279 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@525b8922
+2024-01-09 13:56:02.279 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-01-09 13:56:02.279  INFO 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-01-09 13:56:02.294 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
+2024-01-09 13:56:02.297 DEBUG 2672 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
+2024-01-09 13:56:02.346 DEBUG 2672 --- [http-nio-3000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, countr (truncated)...]
+2024-01-09 13:56:02.614 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NullPointerException
+2024-01-09 13:56:02.618 ERROR 2672 --- [http-nio-3000-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 
-com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.dbtest.yashwith.core_auth.model.BasicAuthResponse and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: com.dbtest.yashwith.response.ApiResponse["data"])
-	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1300) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:400) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.failForEmpty(UnknownSerializer.java:46) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.serialize(UnknownSerializer.java:29) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:728) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:774) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:178) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1518) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1007) ~[jackson-databind-2.13.5.jar:2.13.5]
-	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:456) ~[spring-web-5.3.31.jar:5.3.31]
-	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104) ~[spring-web-5.3.31.jar:5.3.31]
-	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:290) ~[spring-webmvc-5.3.31.jar:5.3.31]
-	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:219) ~[spring-webmvc-5.3.31.jar:5.3.31]
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78) ~[spring-web-5.3.31.jar:5.3.31]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:135) ~[spring-webmvc-5.3.31.jar:5.3.31]
+java.lang.NullPointerException: null
+	at com.dbtest.yashwith.utils.AuthUtil.getAccessToken(AuthUtil.java:61) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.getLoginAuthTokens(AuthServiceImpl.java:117) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.createUser(AuthServiceImpl.java:62) ~[main/:na]
+	at com.dbtest.yashwith.controller.auth.AuthController.createUser(AuthController.java:26) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.31.jar:5.3.31]
 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.31.jar:5.3.31]
 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.31.jar:5.3.31]
 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.31.jar:5.3.31]
@@ -213,138 +120,663 @@ com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer fou
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-2024-01-08 12:14:11.944 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
-2024-01-08 12:14:11.945 DEBUG 2170 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
-2024-01-08 12:14:11.948 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 12:14:11.948 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Mon Jan 08 12:14:11 IST 2024, status=500, error=Internal Server Error, path=/api/v1/auth/ (truncated)...]
-2024-01-08 12:14:11.953 DEBUG 2170 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
-2024-01-08 12:18:07.810  WARN 2221 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:18:07.866  WARN 2221 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:18:08.225 DEBUG 2221 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 12:18:08.267 DEBUG 2221 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 12:18:08.286 DEBUG 2221 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 12:18:08.294 DEBUG 2221 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 12:18:27.298  WARN 2226 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:18:27.366  WARN 2226 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 12:18:27.747 DEBUG 2226 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 12:18:27.792 DEBUG 2226 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 12:18:27.816 DEBUG 2226 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 12:18:27.821 DEBUG 2226 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 12:18:44.181  INFO 2226 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-08 12:18:44.182 DEBUG 2226 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-08 12:18:44.182 DEBUG 2226 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-08 12:18:44.182 DEBUG 2226 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-08 12:18:44.183 DEBUG 2226 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@49122853
-2024-01-08 12:18:44.183 DEBUG 2226 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@25b74370
-2024-01-08 12:18:44.183 DEBUG 2226 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-08 12:18:44.183  INFO 2226 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-08 12:18:44.197 DEBUG 2226 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
-2024-01-08 12:18:44.201 DEBUG 2226 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
-2024-01-08 12:18:44.245 DEBUG 2226 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, phoneN (truncated)...]
-2024-01-08 12:18:44.447 DEBUG 2226 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 12:18:44.456 DEBUG 2226 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=BasicAuthResponse(refreshToken=RefreshToken-1234, accessToken=AccessT (truncated)...]
-2024-01-08 12:18:44.462 DEBUG 2226 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-08 13:10:47.110  WARN 2493 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 13:10:47.174  WARN 2493 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 13:10:47.529 DEBUG 2493 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 13:10:47.575 DEBUG 2493 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 13:10:47.594 DEBUG 2493 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 13:10:47.602 DEBUG 2493 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 13:11:54.994  WARN 2514 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 13:11:55.061  WARN 2514 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 13:11:55.401 DEBUG 2514 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 13:11:55.439 DEBUG 2514 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 13:11:55.456 DEBUG 2514 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 13:11:55.463 DEBUG 2514 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 13:12:02.129  INFO 2514 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-08 13:12:02.129 DEBUG 2514 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-08 13:12:02.129 DEBUG 2514 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-08 13:12:02.129 DEBUG 2514 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-08 13:12:02.130 DEBUG 2514 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@370225c7
-2024-01-08 13:12:02.130 DEBUG 2514 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@7f5e6833
-2024-01-08 13:12:02.130 DEBUG 2514 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-08 13:12:02.130  INFO 2514 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-08 13:12:02.145 DEBUG 2514 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
-2024-01-08 13:12:02.147 DEBUG 2514 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
-2024-01-08 13:12:02.195 DEBUG 2514 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, phoneN (truncated)...]
-2024-01-08 13:12:02.365 DEBUG 2514 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 13:12:02.373 DEBUG 2514 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=BasicAuthResponse(refreshToken=RefreshToken-1234, accessToken=AccessT (truncated)...]
-2024-01-08 13:12:02.379 DEBUG 2514 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-08 13:12:57.082 DEBUG 2514 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/login", parameters={}
-2024-01-08 13:12:57.084 DEBUG 2514 --- [http-nio-3000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#loginUser(AuthRequest)
-2024-01-08 13:12:57.099 DEBUG 2514 --- [http-nio-3000-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AuthRequest(email=anup@gmail.com, password=Anup@2002)]
-2024-01-08 13:12:57.124 DEBUG 2514 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 13:12:57.125 DEBUG 2514 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=false, data=null, view=null, status=null, error=User not found, errorMessage=nul (truncated)...]
-2024-01-08 13:12:57.125 DEBUG 2514 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-08 14:03:04.315  WARN 3137 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 14:03:04.380  WARN 3137 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 14:03:04.764 DEBUG 3137 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 14:03:04.813 DEBUG 3137 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 14:03:04.824 DEBUG 3137 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 14:03:04.829 DEBUG 3137 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 14:03:08.129  INFO 3137 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-08 14:03:08.130 DEBUG 3137 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-08 14:03:08.130 DEBUG 3137 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-08 14:03:08.130 DEBUG 3137 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-08 14:03:08.131 DEBUG 3137 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@55638165
-2024-01-08 14:03:08.131 DEBUG 3137 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6e517c9e
-2024-01-08 14:03:08.131 DEBUG 3137 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-08 14:03:08.131  INFO 3137 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-08 14:03:08.145 DEBUG 3137 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
-2024-01-08 14:03:08.147 DEBUG 3137 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
-2024-01-08 14:03:08.195 DEBUG 3137 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, phoneN (truncated)...]
-2024-01-08 14:03:08.375 DEBUG 3137 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 14:03:08.383 DEBUG 3137 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=BasicAuthResponse(refreshToken=RefreshToken-1234, accessToken=AccessT (truncated)...]
-2024-01-08 14:03:08.390 DEBUG 3137 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-08 14:08:34.561  WARN 3217 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 14:08:34.689  WARN 3217 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 14:08:35.131 DEBUG 3217 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 14:08:35.179 DEBUG 3217 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 14:08:35.191 DEBUG 3217 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 14:08:35.195 DEBUG 3217 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 14:08:39.814  INFO 3217 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-08 14:08:39.815 DEBUG 3217 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-08 14:08:39.815 DEBUG 3217 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-08 14:08:39.815 DEBUG 3217 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-08 14:08:39.816 DEBUG 3217 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@ff1f465
-2024-01-08 14:08:39.816 DEBUG 3217 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@601f264d
-2024-01-08 14:08:39.816 DEBUG 3217 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-08 14:08:39.816  INFO 3217 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-08 14:08:39.829 DEBUG 3217 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
-2024-01-08 14:08:39.832 DEBUG 3217 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
-2024-01-08 14:08:39.878 DEBUG 3217 --- [http-nio-3000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, phoneN (truncated)...]
-2024-01-08 14:08:40.050 DEBUG 3217 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 14:08:40.058 DEBUG 3217 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=BasicAuthResponse(refreshToken=RefreshToken-1234, accessToken=AccessT (truncated)...]
-2024-01-08 14:08:40.065 DEBUG 3217 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-08 14:12:48.882  WARN 3300 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 14:12:48.947  WARN 3300 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 14:12:49.356 DEBUG 3300 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 14:12:49.404 DEBUG 3300 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 10 mappings in 'requestMappingHandlerMapping'
-2024-01-08 14:12:49.417 DEBUG 3300 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 14:12:49.426 DEBUG 3300 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-08 14:13:03.394  INFO 3300 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-08 14:13:03.395 DEBUG 3300 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-08 14:13:03.395 DEBUG 3300 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-08 14:13:03.395 DEBUG 3300 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-08 14:13:03.397 DEBUG 3300 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1b94c789
-2024-01-08 14:13:03.397 DEBUG 3300 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@260d48f5
-2024-01-08 14:13:03.397 DEBUG 3300 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-08 14:13:03.397  INFO 3300 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-01-08 14:13:03.412 DEBUG 3300 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
-2024-01-08 14:13:03.415 DEBUG 3300 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
-2024-01-08 14:13:03.465 DEBUG 3300 --- [http-nio-3000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, phoneN (truncated)...]
-2024-01-08 14:13:03.648 DEBUG 3300 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 14:13:03.661 DEBUG 3300 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=BasicAuthResponse(refreshToken=RefreshToken-1234, accessToken=AccessT (truncated)...]
-2024-01-08 14:13:03.667 DEBUG 3300 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-08 14:13:42.935 DEBUG 3300 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
-2024-01-08 14:13:42.937 DEBUG 3300 --- [http-nio-3000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
-2024-01-08 14:13:42.939 DEBUG 3300 --- [http-nio-3000-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Yashwith, lastName=Alva, password=password, email=yashwithalva@gmail.com (truncated)...]
-2024-01-08 14:13:43.042 DEBUG 3300 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-08 14:13:43.042 DEBUG 3300 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=BasicAuthResponse(refreshToken=RefreshToken-1234, accessToken=AccessT (truncated)...]
-2024-01-08 14:13:43.043 DEBUG 3300 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-08 16:50:51.015  WARN 4542 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 16:50:51.087  WARN 4542 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-08 16:50:51.473 DEBUG 4542 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-08 16:50:51.521 DEBUG 4542 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
-2024-01-08 16:50:51.538 DEBUG 4542 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-08 16:50:51.546 DEBUG 4542 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-09 13:56:02.621 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-01-09 13:56:02.622 DEBUG 2672 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-01-09 13:56:02.626 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-09 13:56:02.626 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Tue Jan 09 13:56:02 IST 2024, status=500, error=Internal Server Error, path=/api/v1/auth/ (truncated)...]
+2024-01-09 13:56:02.632 DEBUG 2672 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2024-01-09 14:44:13.794  WARN 2750 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:44:13.871  WARN 2750 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:44:14.260 DEBUG 2750 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-01-09 14:44:14.307 DEBUG 2750 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-01-09 14:44:14.321 DEBUG 2750 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-01-09 14:44:14.327 DEBUG 2750 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-09 14:44:40.890  INFO 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-09 14:44:40.890 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-01-09 14:44:40.890 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-01-09 14:44:40.890 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-01-09 14:44:40.892 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@150f41b9
+2024-01-09 14:44:40.892 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6ed51944
+2024-01-09 14:44:40.892 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-01-09 14:44:40.892  INFO 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-01-09 14:44:40.906 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
+2024-01-09 14:44:40.909 DEBUG 2750 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
+2024-01-09 14:44:40.960 DEBUG 2750 --- [http-nio-3000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, countr (truncated)...]
+2024-01-09 14:44:41.187 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NullPointerException
+2024-01-09 14:44:41.192 ERROR 2750 --- [http-nio-3000-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.dbtest.yashwith.utils.AuthUtil.getAccessToken(AuthUtil.java:61) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.getLoginAuthTokens(AuthServiceImpl.java:110) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.createUser(AuthServiceImpl.java:62) ~[main/:na]
+	at com.dbtest.yashwith.controller.auth.AuthController.createUser(AuthController.java:27) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:102) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:102) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2024-01-09 14:44:41.194 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-01-09 14:44:41.194 DEBUG 2750 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-01-09 14:44:41.197 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-09 14:44:41.198 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Tue Jan 09 14:44:41 IST 2024, status=500, error=Internal Server Error, path=/api/v1/auth/ (truncated)...]
+2024-01-09 14:44:41.206 DEBUG 2750 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2024-01-09 14:47:32.737  WARN 2793 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:47:32.797  WARN 2793 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:47:33.187 DEBUG 2793 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-01-09 14:47:33.235 DEBUG 2793 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-01-09 14:47:33.255 DEBUG 2793 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-01-09 14:47:33.262 DEBUG 2793 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-09 14:47:36.990  INFO 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-09 14:47:36.991 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-01-09 14:47:36.991 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-01-09 14:47:36.991 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-01-09 14:47:36.992 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7d3c22a5
+2024-01-09 14:47:36.993 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6c5ae8fd
+2024-01-09 14:47:36.993 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-01-09 14:47:36.993  INFO 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-01-09 14:47:37.008 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
+2024-01-09 14:47:37.010 DEBUG 2793 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
+2024-01-09 14:47:37.062 DEBUG 2793 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, countr (truncated)...]
+2024-01-09 14:47:37.281 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NullPointerException
+2024-01-09 14:47:37.285 ERROR 2793 --- [http-nio-3000-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.dbtest.yashwith.utils.AuthUtil.getAccessToken(AuthUtil.java:61) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.getLoginAuthTokens(AuthServiceImpl.java:110) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.createUser(AuthServiceImpl.java:62) ~[main/:na]
+	at com.dbtest.yashwith.controller.auth.AuthController.createUser(AuthController.java:28) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:102) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:102) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2024-01-09 14:47:37.287 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-01-09 14:47:37.288 DEBUG 2793 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-01-09 14:47:37.292 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-09 14:47:37.293 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Tue Jan 09 14:47:37 IST 2024, status=500, error=Internal Server Error, path=/api/v1/auth/ (truncated)...]
+2024-01-09 14:47:37.298 DEBUG 2793 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2024-01-09 14:49:02.023  WARN 2813 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:49:02.087  WARN 2813 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:49:02.474 DEBUG 2813 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-01-09 14:49:02.512 DEBUG 2813 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-01-09 14:49:02.524 DEBUG 2813 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-01-09 14:49:02.530 DEBUG 2813 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-09 14:49:15.493  INFO 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-09 14:49:15.493 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-01-09 14:49:15.493 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-01-09 14:49:15.493 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-01-09 14:49:15.495 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@534762ed
+2024-01-09 14:49:15.495 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@41167ded
+2024-01-09 14:49:15.495 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-01-09 14:49:15.495  INFO 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-01-09 14:49:15.510 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
+2024-01-09 14:49:15.512 DEBUG 2813 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
+2024-01-09 14:49:15.563 DEBUG 2813 --- [http-nio-3000-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, countr (truncated)...]
+2024-01-09 14:49:15.796 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NullPointerException
+2024-01-09 14:49:15.800 ERROR 2813 --- [http-nio-3000-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.dbtest.yashwith.utils.AuthUtil.getAccessToken(AuthUtil.java:62) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.getLoginAuthTokens(AuthServiceImpl.java:110) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.createUser(AuthServiceImpl.java:62) ~[main/:na]
+	at com.dbtest.yashwith.controller.auth.AuthController.createUser(AuthController.java:28) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:102) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:102) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2024-01-09 14:49:15.801 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-01-09 14:49:15.802 DEBUG 2813 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-01-09 14:49:15.805 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-09 14:49:15.806 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Tue Jan 09 14:49:15 IST 2024, status=500, error=Internal Server Error, path=/api/v1/auth/ (truncated)...]
+2024-01-09 14:49:15.814 DEBUG 2813 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2024-01-09 14:50:21.396  WARN 2832 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:50:21.460  WARN 2832 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:50:21.880 DEBUG 2832 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-01-09 14:50:21.924 DEBUG 2832 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-01-09 14:50:21.949 DEBUG 2832 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-01-09 14:50:21.960 DEBUG 2832 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-09 14:50:25.989  INFO 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-09 14:50:25.989 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-01-09 14:50:25.989 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-01-09 14:50:25.989 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-01-09 14:50:25.991 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7d12429
+2024-01-09 14:50:25.991 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1c92a549
+2024-01-09 14:50:25.991 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-01-09 14:50:25.991  INFO 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-01-09 14:50:26.005 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
+2024-01-09 14:50:26.007 DEBUG 2832 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
+2024-01-09 14:50:26.055 DEBUG 2832 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, countr (truncated)...]
+2024-01-09 14:50:26.274 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NullPointerException
+2024-01-09 14:50:26.277 ERROR 2832 --- [http-nio-3000-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.dbtest.yashwith.utils.AuthUtil.getAccessToken(AuthUtil.java:62) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.getLoginAuthTokens(AuthServiceImpl.java:110) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.createUser(AuthServiceImpl.java:62) ~[main/:na]
+	at com.dbtest.yashwith.controller.auth.AuthController.createUser(AuthController.java:28) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:102) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:102) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2024-01-09 14:50:26.279 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-01-09 14:50:26.280 DEBUG 2832 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-01-09 14:50:26.282 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-09 14:50:26.283 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Tue Jan 09 14:50:26 IST 2024, status=500, error=Internal Server Error, path=/api/v1/auth/ (truncated)...]
+2024-01-09 14:50:26.288 DEBUG 2832 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2024-01-09 14:52:21.620  WARN 2855 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:52:21.693  WARN 2855 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:52:22.075 DEBUG 2855 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-01-09 14:52:22.113 DEBUG 2855 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-01-09 14:52:22.125 DEBUG 2855 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-01-09 14:52:22.129 DEBUG 2855 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-09 14:52:39.052  INFO 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-09 14:52:39.053 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-01-09 14:52:39.053 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-01-09 14:52:39.053 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-01-09 14:52:39.054 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3eec8583
+2024-01-09 14:52:39.054 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5d2e6f62
+2024-01-09 14:52:39.054 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-01-09 14:52:39.054  INFO 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-01-09 14:52:39.069 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
+2024-01-09 14:52:39.071 DEBUG 2855 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
+2024-01-09 14:52:39.125 DEBUG 2855 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, countr (truncated)...]
+2024-01-09 14:52:39.348 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NullPointerException
+2024-01-09 14:52:39.352 ERROR 2855 --- [http-nio-3000-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.dbtest.yashwith.utils.AuthUtil.getAccessToken(AuthUtil.java:64) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.getLoginAuthTokens(AuthServiceImpl.java:110) ~[main/:na]
+	at com.dbtest.yashwith.core_auth.service.AuthServiceImpl.createUser(AuthServiceImpl.java:62) ~[main/:na]
+	at com.dbtest.yashwith.controller.auth.AuthController.createUser(AuthController.java:28) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.31.jar:5.3.31]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:102) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:102) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2024-01-09 14:52:39.354 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-01-09 14:52:39.354 DEBUG 2855 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-01-09 14:52:39.358 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-09 14:52:39.358 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Tue Jan 09 14:52:39 IST 2024, status=500, error=Internal Server Error, path=/api/v1/auth/ (truncated)...]
+2024-01-09 14:52:39.367 DEBUG 2855 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2024-01-09 14:56:47.432  WARN 2896 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:56:47.489  WARN 2896 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-09 14:56:47.899 DEBUG 2896 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-01-09 14:56:47.945 DEBUG 2896 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-01-09 14:56:47.960 DEBUG 2896 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-01-09 14:56:47.966 DEBUG 2896 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-09 14:56:49.109  INFO 2896 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-09 14:56:49.109 DEBUG 2896 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-01-09 14:56:49.110 DEBUG 2896 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-01-09 14:56:49.110 DEBUG 2896 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-01-09 14:56:49.111 DEBUG 2896 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1d1cfe4
+2024-01-09 14:56:49.111 DEBUG 2896 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@22aee519
+2024-01-09 14:56:49.111 DEBUG 2896 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-01-09 14:56:49.111  INFO 2896 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-01-09 14:56:49.125 DEBUG 2896 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
+2024-01-09 14:56:49.127 DEBUG 2896 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
+2024-01-09 14:56:49.180 DEBUG 2896 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, countr (truncated)...]
+2024-01-09 14:56:49.411 DEBUG 2896 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-09 14:56:49.412 DEBUG 2896 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AuthResponse(user=UserProfile(firstName=Anup, lastName=Sirsikar, age=null, profilePicture=null, gend (truncated)...]
+2024-01-09 14:56:49.416 DEBUG 2896 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

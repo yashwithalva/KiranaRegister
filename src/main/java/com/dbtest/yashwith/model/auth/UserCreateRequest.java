@@ -19,6 +19,9 @@ public class UserCreateRequest {
     @Email(message = "Please Enter a valid email")
     private final String email;
 
+    @NotBlank(message = "Country Code cannot be blank")
+    private final String countryCode;
+
     @NotBlank(message = "Phone number cannot be blank")
     private final String phoneNumber;
 

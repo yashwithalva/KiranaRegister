@@ -26,7 +26,7 @@ public class RefreshTokenUtil {
     /**
      * Save refresh token only in Mongo
      *
-     * @return
+     * @return RefreshTokenModel with token and sessionId.
      */
     public RefreshTokenModel saveRefreshToken(String userId, String phoneNumber, String email) {
         String token = UUID.randomUUID().toString();
@@ -46,9 +46,9 @@ public class RefreshTokenUtil {
     }
 
     /**
-     * remove token by refresh token id which is the session id in the token
+     * remove token from mongodb using the session id.
      *
-     * @param id
+     * @param id - represents sessionId.
      */
     public void removeTokenForLogout(String id) {
         Optional<RefreshTokenMongo> refreshTokenMongoOptional =
@@ -56,21 +56,25 @@ public class RefreshTokenUtil {
         if (refreshTokenMongoOptional.isEmpty()) {
             return;
         }
-        RefreshTokenMongo refreshTokenMongo = refreshTokenMongoOptional.get();
+        // TODO: Remove it from database.
+        SystemDaoHelper.getInstance()
+                .getRefreshTokenMongoDao()
+                .delete(refreshTokenMongoOptional.get());
+        // Remove userSession.
         // If cached in REDIS remove using sessionId.
     }
 
     /**
      * remove all tokens for user by userId
      *
-     * @param userId
+     * @param userId - userId for who the refresh token was created.
      */
     public void removeAllTokensForUser(String userId) {
         List<RefreshTokenMongo> refreshTokenMongoList =
                 SystemDaoHelper.getInstance().getRefreshTokenMongoDao().findAllByUserId(userId);
         refreshTokenMongoList.forEach(
                 refreshTokenMongo -> {
-                    // Remove all users from REDIS.
+                    // Remove all user session from REDIS.
                     SystemDaoHelper.getInstance()
                             .getRefreshTokenMongoDao()
                             .delete(refreshTokenMongo);
@@ -78,9 +82,9 @@ public class RefreshTokenUtil {
     }
 
     /**
-     * remove token functionality for deletion
+     * Do not user. Jar had implementation with appId. remove token functionality for deletion
      *
-     * @param userId
+     * @param userId - userId of the user.
      */
     public void removeTokenForDeletion(String userId) {
         List<RefreshTokenMongo> refreshTokenMongoList =
@@ -96,11 +100,22 @@ public class RefreshTokenUtil {
     }
 
     /**
+     * TODO: Redis related. Refer to JAR and implement.
+     *
+     * @param userId - userId of the user
+     * @param sessionId - sessionId
+     */
+    public void removeUserSession(String userId, String sessionId) {
+        //
+    }
+
+    /**
      * Save refresh token only in Mongo
      *
      * @return
      */
-    public RefreshTokenModel acessTokenSaveRefreshToken(String userId, String phoneNumber) {
+    public RefreshTokenModel acessTokenSaveRefreshToken(
+            String userId, String phoneNumber, String email) {
         String token = UUID.randomUUID().toString();
         String tokenHash = TokenHashUtil.getSHAString(token);
         RefreshTokenMongo refreshToken = new RefreshTokenMongo();
@@ -108,6 +123,7 @@ public class RefreshTokenUtil {
         refreshToken.setUserId(userId);
         refreshToken.setToken(tokenHash);
         refreshToken.setCreatedAt(new Date());
+        refreshToken.setEmail(email);
         Date now = new Date();
         refreshToken.setTimeout(new DateTime(now).plus(refreshTokenExpirationTime).toDate());
         refreshToken = SystemDaoHelper.getInstance().getRefreshTokenMongoDao().save(refreshToken);

@@ -7,5 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class RefreshTokenModel {
     private String refreshToken;
+
+    // ObjectId of the Stored refresh token
     private String sessionId;
 }

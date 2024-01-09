@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class DateUtils {
+public class DateUtil {
 
     private static final String yyyy_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
     private static final int oneDayTimeInMillis = 24 * 60 * 60 * 1000;
@@ -609,7 +609,7 @@ public class DateUtils {
     public static Date getISTDateFromString(String date) {
         Date startDate = null;
         if (date != null) {
-            startDate = DateUtils.getTimeZoneDate(date);
+            startDate = DateUtil.getTimeZoneDate(date);
         }
         return startDate != null ? startDate : getDateInIst(new Date());
     }
@@ -756,8 +756,8 @@ public class DateUtils {
         if (date1 == null || date2 == null) {
             return false;
         }
-        String formattedD1 = DateUtils.getFormattedDate(date1, "yyyy-MM-dd");
-        String formattedD2 = DateUtils.getFormattedDate(date2, "yyyy-MM-dd");
+        String formattedD1 = DateUtil.getFormattedDate(date1, "yyyy-MM-dd");
+        String formattedD2 = DateUtil.getFormattedDate(date2, "yyyy-MM-dd");
         return formattedD1.equals(formattedD2);
     }
 
@@ -1183,9 +1183,9 @@ public class DateUtils {
      * @return
      */
     public static long getNoOfDaysInBetweenDates(Date expiryDate, Date todaysDate) {
-        return (DateUtils.getDiffInDays(expiryDate, todaysDate) < 0)
+        return (DateUtil.getDiffInDays(expiryDate, todaysDate) < 0)
                 ? 0
-                : DateUtils.getDiffInDays(expiryDate, todaysDate);
+                : DateUtil.getDiffInDays(expiryDate, todaysDate);
     }
 
     /**
@@ -1198,7 +1198,7 @@ public class DateUtils {
         SimpleDateFormat ymdFormat = new SimpleDateFormat("yyyy-MM-dd");
         // Use format method on SimpleDateFormat
         String formattedDateStr = ymdFormat.format(expiryDate);
-        return DateUtils.isDatePast(formattedDateStr, "yyyy-MM-dd");
+        return DateUtil.isDatePast(formattedDateStr, "yyyy-MM-dd");
     }
 
     /**

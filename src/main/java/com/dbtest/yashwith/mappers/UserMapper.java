@@ -16,6 +16,7 @@ public interface UserMapper {
     @Mapping(target = "lastName", source = "lastName")
     @Mapping(target = "password", source = "password")
     @Mapping(target = "email", source = "email")
+    @Mapping(target = "countryCode", source = "countryCode")
     @Mapping(target = "phoneNumber", source = "phoneNumber")
     User requestToUser(UserCreateRequest userCreateRequest);
 }
