@@ -17,3 +17,11 @@
 Spring version 2.7.18 is used.
 Mongodb database is placed in the resources
 Testing is conducted using `junittest`
+
+### Currently working on:
+1. Redis
+2. Caching
+3. ApiLimiting.
+
+### Note:
+1. fcm is used for sending push notifications to device.
