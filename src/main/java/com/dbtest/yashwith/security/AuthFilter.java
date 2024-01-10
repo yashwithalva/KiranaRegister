@@ -94,6 +94,8 @@ public class AuthFilter extends OncePerRequestFilter {
                 boolean eligibleForSessionCheck =
                         tokenUtils.extractIssuedAt(jwt).after(sessionCheckDate);
 
+
+                // TODO : Check refresh token existence once REDIS connected.
                 if (eligibleForSessionCheck
                         && !refreshTokenUtil.isSessionValid(userInfo.getUserId())) {
                     log.info("invalid token : " + jwt);
@@ -119,11 +121,12 @@ public class AuthFilter extends OncePerRequestFilter {
 
         } catch (TokenException e) {
             log.error(
-                    "Token exception "
+                    "$ Token exception "
+                            + " " + e.getApiResponse().getError() + " "
                             + request.getRequestURI()
                             + " returning error code "
                             + 403
-                            + e.getMessage());
+                            + " " + e.getMessage());
             var apiResponse = e.getApiResponse();
             createErrorResponse(apiResponse.getErrorCode(), apiResponse.getError(), null, response);
         } catch (JwtException e) {

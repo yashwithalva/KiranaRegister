@@ -59,6 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         // TODO AUTH : Configure routes and security.
+        log.error("Reached the configure filter searching for something here");
+
         http.cors()
                 .and()
                 .sessionManagement()
@@ -115,10 +117,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         })
                 .and()
                 .authorizeRequests()
-                .anyRequest()
+                .antMatchers("/*")
                 .permitAll();
 
-        // http.addFilterAfter();
         http.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
