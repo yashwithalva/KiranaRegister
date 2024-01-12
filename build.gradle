@@ -25,10 +25,6 @@ spotless {
 	}
 }
 
-repositories {
-	mavenCentral()
-}
-
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -53,9 +49,22 @@ dependencies {
 	implementation 'com.google.guava:guava:32.0.1-jre'
 	implementation 'joda-time:joda-time:2.10.10'
 
+	// redis
+	//implementation 'org.redisson:redisson-spring-boot-starter:2.15.2'
+	//implementation group: 'com.giffing.bucket4j.spring.boot.starter', name: 'bucket4j-spring-boot-starter', version: '0.6.0'
+	implementation 'com.bucket4j:bucket4j-core:8.7.0'
+	implementation 'com.bucket4j:bucket4j-jcache:8.7.0'
+	implementation 'org.redisson:redisson:2.15.2'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+
+
 }
+repositories {
+	mavenCentral()
+}
+
 
 tasks.named('test') {
 	useJUnitPlatform()

@@ -18,7 +18,13 @@ public class RefreshTokenController {
         log.debug(basicAuthRequest.getRefreshToken());
         log.debug(basicAuthRequest.getPhoneNumber());
 
-        // TODO : Get Access Token
+        /**
+         * TODO : Check if refresh token is expired.
+         * Check if access token is expired.
+         * Generate a new access token and send it back.
+         */
+
+
         BasicAuthResponse response = new BasicAuthResponse();
         response.setRefreshToken("New refresh token given out");
         response.setAccessToken("New access token");

@@ -24,9 +24,7 @@ public class AuthController {
 
     @PostMapping("/create")
     public ResponseEntity<AuthResponse> createUser(@RequestBody UserCreateRequest request) {
-        log.debug("Recieved request: " + request.toString());
         AuthResponse authResponse = authService.createUser(request);
-        log.info(authResponse.toString());
         return ResponseEntity.ok().body(authResponse);
     }
 

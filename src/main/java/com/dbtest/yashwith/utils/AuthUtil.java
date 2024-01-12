@@ -31,19 +31,15 @@ public class AuthUtil {
      * @return AuthResponse with accessToken and userProfile.
      */
     public AuthResponse getAccessToken(User user, String sessionId) {
-        System.out.println("Get access token");
         UserInfo userInfo = new UserInfo();
         TokenPayload tokenPayload = new TokenPayload();
         tokenPayload.setUserId(user.getId());
         userInfo.setTokenPayload(tokenPayload);
 
-        System.out.println("Added tokenPayload to userInfo");
         UsernamePasswordAuthenticationToken authentication =
                 new UsernamePasswordAuthenticationToken(userInfo, null, userInfo.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = tokenUtils.createToken(user, sessionId);
-
-        System.out.println("Token: " + token);
         AuthResponse authResponse = new AuthResponse();
         authResponse.setAccessToken(token);
 
@@ -51,8 +47,6 @@ public class AuthUtil {
         userProfile.setFirstName(StringUtils.capitalize(user.getFirstName()));
         userProfile.setLastName(StringUtils.capitalize(user.getLastName()));
         userProfile.setPhoneNumber(user.getPhoneNumber());
-
-        System.out.println("Completed basic setup");
 
         if (user.getProfilePicture() != null) {
             userProfile.setProfilePicture(user.getProfilePicture());
@@ -65,7 +59,6 @@ public class AuthUtil {
         }
         userProfile.setCreatedAt(user.getCreatedAt().getTime());
         log.info(userProfile.toString());
-        System.out.println(userProfile.toString());
         authResponse.setUser(userProfile);
         return authResponse;
     }
