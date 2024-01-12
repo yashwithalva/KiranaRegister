@@ -35,7 +35,7 @@ public class RedisConfig
      * @param config redis config
      * @return
      */
-    @Bean
+    @Bean(name = "redis-manager")
     public CacheManager cacheManager(Config config) {
         CacheManager manager = Caching.getCachingProvider().getCacheManager();
         manager.createCache("cache", RedissonConfiguration.fromConfig(config));
