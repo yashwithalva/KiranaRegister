@@ -28,7 +28,7 @@ import org.springframework.web.client.RestTemplate;
 public class TransactionService {
     private TransactionRepository transactionRepository;
     private TokenUtils tokenUtils;
-    private RestTemplate restTemplate;
+    private FixedRateService fixedRateService;
 
     public List<TransactionDto> getAllTransactions() {
         List<TransactionDto> transactionDtos = new ArrayList<>();
@@ -115,13 +115,18 @@ public class TransactionService {
     }
 
     public double getCurrentExchangeForCurrency(String countryCode) {
+        // TODO : Use this from application.properties
         String apiUrl = "https://api.fxratesapi.com/latest?base=INR";
-        ExchangeRates exchangeRates = restTemplate.getForObject(apiUrl, ExchangeRates.class);
-
-        if (exchangeRates != null) {
-            return exchangeRates.getExchangeRates(countryCode);
-        } else {
-            return 0.0;
+        try{
+            ExchangeRates exchangeRates = fixedRateService.getFixedRate(apiUrl);
+            if (exchangeRates != null) {
+                return exchangeRates.getExchangeRates(countryCode);
+            } else {
+                throw new RuntimeException("Unable to do currency conversion");
+            }
+        } catch (Exception e) {
+            log.error("Invalid response or missing currency: {}", e);
+            throw new RuntimeException(e.getMessage());
         }
     }
 

@@ -279,3 +279,79 @@ Caused by: javax.cache.CacheException: Multiple CachingProviders have been confi
 2024-01-12 11:50:26.238 DEBUG 2631 --- [http-nio-3000-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
 2024-01-12 11:50:26.238 DEBUG 2631 --- [http-nio-3000-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=150.0, totalDebit=0.0, totalCredit=150.0), view=nul (truncated)...]
 2024-01-12 11:50:26.239 DEBUG 2631 --- [http-nio-3000-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-12 12:15:37.363  WARN 2918 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-12 12:15:37.427  WARN 2918 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-12 12:15:37.721  WARN 2918 --- [main] i.n.r.d.DnsServerAddressStreamProviders  : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+2024-01-12 12:15:38.079 ERROR 2918 --- [main] c.d.yashwith.security.SecurityConfig     : Reached the configure filter searching for something here
+2024-01-12 12:15:38.175 DEBUG 2918 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-01-12 12:15:38.219 DEBUG 2918 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-01-12 12:15:38.233 DEBUG 2918 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-01-12 12:15:38.238 DEBUG 2918 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-12 12:15:49.428  INFO 2918 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-12 12:15:49.429 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-01-12 12:15:49.429 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-01-12 12:15:49.429 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-01-12 12:15:49.431 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@c683cf5
+2024-01-12 12:15:49.431 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@7ebaf0d
+2024-01-12 12:15:49.431 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-01-12 12:15:49.431  INFO 2918 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-01-12 12:15:49.617 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
+2024-01-12 12:15:49.620 DEBUG 2918 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
+2024-01-12 12:15:49.641 DEBUG 2918 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=DEBIT, originalAmount=1200.0, currency=INR)]
+2024-01-12 12:15:49.715 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
+2024-01-12 12:15:49.717 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-01-12 12:15:50.810 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.client.RestTemplate              : Response 200 OK
+2024-01-12 12:15:50.815 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
+2024-01-12 12:15:50.883 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-12 12:15:50.890 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=65a0e01e6321d6698c739e91, view=null, status=CREATED, error=null, erro (truncated)...]
+2024-01-12 12:15:50.895 DEBUG 2918 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-12 12:16:05.952 DEBUG 2918 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
+2024-01-12 12:16:05.952 DEBUG 2918 --- [http-nio-3000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
+2024-01-12 12:16:05.953 DEBUG 2918 --- [http-nio-3000-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=DEBIT, originalAmount=500.0, currency=INR)]
+2024-01-12 12:16:05.954 DEBUG 2918 --- [http-nio-3000-exec-3] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
+2024-01-12 12:16:05.954 DEBUG 2918 --- [http-nio-3000-exec-3] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-01-12 12:16:06.569 DEBUG 2918 --- [http-nio-3000-exec-3] o.s.web.client.RestTemplate              : Response 200 OK
+2024-01-12 12:16:06.570 DEBUG 2918 --- [http-nio-3000-exec-3] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
+2024-01-12 12:16:06.597 DEBUG 2918 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-12 12:16:06.598 DEBUG 2918 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=65a0e02e6321d6698c739e92, view=null, status=CREATED, error=null, erro (truncated)...]
+2024-01-12 12:16:06.599 DEBUG 2918 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-12 12:16:10.641 DEBUG 2918 --- [http-nio-3000-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
+2024-01-12 12:16:10.641 DEBUG 2918 --- [http-nio-3000-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
+2024-01-12 12:16:10.641 DEBUG 2918 --- [http-nio-3000-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=DEBIT, originalAmount=500.0, currency=INR)]
+2024-01-12 12:16:10.642 DEBUG 2918 --- [http-nio-3000-exec-4] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
+2024-01-12 12:16:10.642 DEBUG 2918 --- [http-nio-3000-exec-4] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-01-12 12:16:11.089 DEBUG 2918 --- [http-nio-3000-exec-4] o.s.web.client.RestTemplate              : Response 200 OK
+2024-01-12 12:16:11.091 DEBUG 2918 --- [http-nio-3000-exec-4] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
+2024-01-12 12:16:11.105 DEBUG 2918 --- [http-nio-3000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-12 12:16:11.105 DEBUG 2918 --- [http-nio-3000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=65a0e0336321d6698c739e93, view=null, status=CREATED, error=null, erro (truncated)...]
+2024-01-12 12:16:11.106 DEBUG 2918 --- [http-nio-3000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-12 12:16:11.694 DEBUG 2918 --- [http-nio-3000-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
+2024-01-12 12:16:11.694 DEBUG 2918 --- [http-nio-3000-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
+2024-01-12 12:16:11.694 DEBUG 2918 --- [http-nio-3000-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=DEBIT, originalAmount=500.0, currency=INR)]
+2024-01-12 12:16:11.695 DEBUG 2918 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
+2024-01-12 12:16:11.695 DEBUG 2918 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-01-12 12:16:12.109 DEBUG 2918 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : Response 200 OK
+2024-01-12 12:16:12.111 DEBUG 2918 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
+2024-01-12 12:16:12.117 DEBUG 2918 --- [http-nio-3000-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-12 12:16:12.120 DEBUG 2918 --- [http-nio-3000-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=65a0e0346321d6698c739e94, view=null, status=CREATED, error=null, erro (truncated)...]
+2024-01-12 12:16:12.121 DEBUG 2918 --- [http-nio-3000-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-12 12:16:12.661 DEBUG 2918 --- [http-nio-3000-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
+2024-01-12 12:16:12.662 DEBUG 2918 --- [http-nio-3000-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
+2024-01-12 12:16:12.662 DEBUG 2918 --- [http-nio-3000-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=DEBIT, originalAmount=500.0, currency=INR)]
+2024-01-12 12:16:12.663 DEBUG 2918 --- [http-nio-3000-exec-6] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
+2024-01-12 12:16:12.663 DEBUG 2918 --- [http-nio-3000-exec-6] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-01-12 12:16:13.056 DEBUG 2918 --- [http-nio-3000-exec-6] o.s.web.client.RestTemplate              : Response 200 OK
+2024-01-12 12:16:13.056 DEBUG 2918 --- [http-nio-3000-exec-6] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
+2024-01-12 12:16:13.073 DEBUG 2918 --- [http-nio-3000-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-12 12:16:13.073 DEBUG 2918 --- [http-nio-3000-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=65a0e0356321d6698c739e95, view=null, status=CREATED, error=null, erro (truncated)...]
+2024-01-12 12:16:13.074 DEBUG 2918 --- [http-nio-3000-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-12 12:16:13.575 DEBUG 2918 --- [http-nio-3000-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
+2024-01-12 12:16:13.575 DEBUG 2918 --- [http-nio-3000-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
+2024-01-12 12:16:13.575 DEBUG 2918 --- [http-nio-3000-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=DEBIT, originalAmount=500.0, currency=INR)]
+2024-01-12 12:16:13.576 DEBUG 2918 --- [http-nio-3000-exec-7] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
+2024-01-12 12:16:13.576 DEBUG 2918 --- [http-nio-3000-exec-7] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-01-12 12:16:13.960 DEBUG 2918 --- [http-nio-3000-exec-7] o.s.web.client.RestTemplate              : Response 200 OK
+2024-01-12 12:16:13.961 DEBUG 2918 --- [http-nio-3000-exec-7] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
+2024-01-12 12:16:13.967 DEBUG 2918 --- [http-nio-3000-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-12 12:16:13.968 DEBUG 2918 --- [http-nio-3000-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=65a0e0356321d6698c739e96, view=null, status=CREATED, error=null, erro (truncated)...]
+2024-01-12 12:16:13.969 DEBUG 2918 --- [http-nio-3000-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
