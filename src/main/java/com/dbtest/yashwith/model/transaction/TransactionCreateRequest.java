@@ -7,8 +7,9 @@ import lombok.Data;
 
 @Data
 public class TransactionCreateRequest {
+    // TODO: Role fetched by me
     private Role role;
     private TransactionType transactionType;
-    private float originalAmount;
+    private double originalAmount;
     private Currency currency;
 }

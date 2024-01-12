@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document
+@Document("refresh-token")
 @EqualsAndHashCode(callSuper = true)
 public class RefreshTokenMongo extends DateAudit {
     @Id private String id;

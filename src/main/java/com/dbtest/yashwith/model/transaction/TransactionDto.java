@@ -9,7 +9,7 @@ import lombok.Data;
 public class TransactionDto {
     private Role role;
     private TransactionType transactionType;
-    private float originalAmount;
+    private double originalAmount;
     private Currency currency;
-    private float amount;
+    private double amount;
 }

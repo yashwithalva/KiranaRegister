@@ -42,7 +42,6 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponse createUser(UserCreateRequest userCreateRequest) {
-        log.info("Creating a new User");
         User user = UserMapper.INSTANCE.requestToUser(userCreateRequest);
 
         List<Role> roles = new ArrayList<>();
@@ -59,10 +58,7 @@ public class AuthServiceImpl implements AuthService {
         String encodedPassword = passwordEncoder.encode(userCreateRequest.getPassword());
         user.setPassword(encodedPassword);
         User newUser = userRepository.save(user);
-
-        // TODO : Create tokens and add it to BasicAuthResponse.
-        AuthResponse authResponse = getLoginAuthTokens(newUser);
-        return authResponse;
+        return getAuthTokens(newUser);
     }
 
     @Override
@@ -78,9 +74,8 @@ public class AuthServiceImpl implements AuthService {
             apiResponse.setSuccess(false);
         } else {
             if (passwordEncoder.matches(password, user.get().getPassword())) {
-                // Send new refresh and access token.
-                // Check if refresh token already exist. If yes remove it and then add new ones.
-                AuthResponse authResponse = getLoginAuthTokens(user.get());
+                // If yes remove it and then add new ones.
+                AuthResponse authResponse = getAuthTokens(user.get());
 
                 apiResponse.setData(authResponse);
                 apiResponse.setErrorMessage("Authenticated");
@@ -101,7 +96,7 @@ public class AuthServiceImpl implements AuthService {
      *
      * @return Access token and refreshToken.
      */
-    private AuthResponse getLoginAuthTokens(User user) {
+    private AuthResponse getAuthTokens(User user) {
         RefreshTokenModel refreshTokenModel =
                 refreshTokenUtil.saveRefreshToken(
                         user.getId(), user.getPhoneNumber(), user.getEmail());
