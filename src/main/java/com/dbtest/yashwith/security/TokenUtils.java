@@ -156,8 +156,8 @@ public class TokenUtils {
     /**
      * Create a token for the Role User
      *
-     * @param user  User information
-     * @param sessionId  ObjectId of the refreshTokenMongo
+     * @param user User information
+     * @param sessionId ObjectId of the refreshTokenMongo
      * @return jwt token with claims
      */
     public String createToken(User user, String sessionId) {

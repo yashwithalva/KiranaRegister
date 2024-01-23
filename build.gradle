@@ -32,7 +32,8 @@ repositories {
 
 dependencies {
 	// Personal
-	implementation 'org.yashwith.frameworks:yash:1.0'
+	// implementation 'org.yashwith.frameworks:yash:api_rate_limiter:0.0.2-SNAPSHOT'
+	implementation 'org.yashwith.frameworks:rate_limiter:0.0.1-SNAPSHOT'
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'

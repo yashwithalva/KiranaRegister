@@ -1,292 +1,436 @@
-2024-01-11 11:19:10.639  WARN 7490 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:19:10.703  WARN 7490 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:19:10.988 ERROR 7490 --- [main] c.d.yashwith.security.SecurityConfig     : Reached the configure filter searching for something here
-2024-01-11 11:19:11.099 DEBUG 7490 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-11 11:19:11.147 DEBUG 7490 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
-2024-01-11 11:19:11.170 DEBUG 7490 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-11 11:19:11.178 DEBUG 7490 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-11 11:19:52.445  INFO 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-11 11:19:52.446 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-11 11:19:52.446 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-11 11:19:52.446 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-11 11:19:52.447 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2b1a901d
-2024-01-11 11:19:52.447 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1f408ab6
-2024-01-11 11:19:52.447 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-11 11:19:52.447  INFO 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-11 11:19:52.461 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/login", parameters={}
-2024-01-11 11:19:52.464 DEBUG 7490 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#loginUser(AuthRequest)
-2024-01-11 11:19:52.507 DEBUG 7490 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [AuthRequest(email=anup@gmail.com, password=password)]
-2024-01-11 11:19:52.563 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:19:52.570 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=false, data=null, view=null, status=null, error=User not found, errorMessage=nul (truncated)...]
-2024-01-11 11:19:52.575 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:19:58.713 DEBUG 7490 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
-2024-01-11 11:19:58.714 DEBUG 7490 --- [http-nio-3000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
-2024-01-11 11:19:58.741 DEBUG 7490 --- [http-nio-3000-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, countr (truncated)...]
-2024-01-11 11:19:58.979 DEBUG 7490 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:19:58.984 DEBUG 7490 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AuthResponse(user=UserProfile(firstName=Anup, lastName=Sirsikar, age=null, profilePicture=null, gend (truncated)...]
-2024-01-11 11:19:58.986 DEBUG 7490 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:21:16.334 DEBUG 7490 --- [http-nio-3000-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
-2024-01-11 11:21:16.335 DEBUG 7490 --- [http-nio-3000-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
-2024-01-11 11:21:16.342 DEBUG 7490 --- [http-nio-3000-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=CREDIT, originalAmount=200.0, currency=INR)]
-2024-01-11 11:21:16.402 DEBUG 7490 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
-2024-01-11 11:21:16.404 DEBUG 7490 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-01-11 11:21:18.104 DEBUG 7490 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : Response 200 OK
-2024-01-11 11:21:18.105 DEBUG 7490 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
-2024-01-11 11:21:18.153 DEBUG 7490 --- [http-nio-3000-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:21:18.154 DEBUG 7490 --- [http-nio-3000-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=659f81d6ade9bc4fd82426be, view=null, status=CREATED, error=null, erro (truncated)...]
-2024-01-11 11:21:18.154 DEBUG 7490 --- [http-nio-3000-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:22:24.804 DEBUG 7490 --- [http-nio-3000-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
-2024-01-11 11:22:24.804 DEBUG 7490 --- [http-nio-3000-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
-2024-01-11 11:22:24.805 DEBUG 7490 --- [http-nio-3000-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=CREDIT, originalAmount=100.0, currency=INR)]
-2024-01-11 11:22:24.806 DEBUG 7490 --- [http-nio-3000-exec-9] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
-2024-01-11 11:22:24.806 DEBUG 7490 --- [http-nio-3000-exec-9] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-01-11 11:22:25.565 DEBUG 7490 --- [http-nio-3000-exec-9] o.s.web.client.RestTemplate              : Response 200 OK
-2024-01-11 11:22:25.566 DEBUG 7490 --- [http-nio-3000-exec-9] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
-2024-01-11 11:22:25.571 DEBUG 7490 --- [http-nio-3000-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:22:25.572 DEBUG 7490 --- [http-nio-3000-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=659f8219ade9bc4fd82426bf, view=null, status=CREATED, error=null, erro (truncated)...]
-2024-01-11 11:22:25.572 DEBUG 7490 --- [http-nio-3000-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:22:56.312 DEBUG 7490 --- [http-nio-3000-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
-2024-01-11 11:22:56.312 DEBUG 7490 --- [http-nio-3000-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
-2024-01-11 11:22:56.312 DEBUG 7490 --- [http-nio-3000-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=CREDIT, originalAmount=50.0, currency=INR)]
-2024-01-11 11:22:56.313 DEBUG 7490 --- [http-nio-3000-exec-10] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
-2024-01-11 11:22:56.313 DEBUG 7490 --- [http-nio-3000-exec-10] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-01-11 11:22:57.230 DEBUG 7490 --- [http-nio-3000-exec-10] o.s.web.client.RestTemplate              : Response 200 OK
-2024-01-11 11:22:57.232 DEBUG 7490 --- [http-nio-3000-exec-10] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
-2024-01-11 11:22:57.247 DEBUG 7490 --- [http-nio-3000-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:22:57.247 DEBUG 7490 --- [http-nio-3000-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=659f8239ade9bc4fd82426c0, view=null, status=CREATED, error=null, erro (truncated)...]
-2024-01-11 11:22:57.248 DEBUG 7490 --- [http-nio-3000-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:26:05.665 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=20240101&toDate=20240131", parameters={masked}
-2024-01-11 11:26:05.665 DEBUG 7490 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:26:05.688 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.dbtest.yashwith.response.ApiResponse> com.dbtest.yashwith.controller.TransactionController.getReportBetweenDate(java.util.Date,java.util.Date): Failed to convert value of type 'java.lang.String' to required type 'java.util.Date'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [@org.springframework.web.bind.annotation.RequestParam @org.springframework.format.annotation.DateTimeFormat java.util.Date] for value [20240101]; nested exception is java.lang.IllegalArgumentException: Invalid format: "20240101" is too short
-2024-01-11 11:26:05.689  WARN 7490 --- [http-nio-3000-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.util.Date'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [@org.springframework.web.bind.annotation.RequestParam @org.springframework.format.annotation.DateTimeFormat java.util.Date] for value [20240101]; nested exception is java.lang.IllegalArgumentException: Invalid format: "20240101" is too short]
-2024-01-11 11:26:05.689 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
-2024-01-11 11:26:05.691 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error?fromDate=20240101&toDate=20240131", parameters={masked}
-2024-01-11 11:26:05.692 DEBUG 7490 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
-2024-01-11 11:26:05.694 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:26:05.694 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Thu Jan 11 11:26:05 IST 2024, status=400, error=Bad Request, path=/transactions/report}]
-2024-01-11 11:26:05.695 DEBUG 7490 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
-2024-01-11 11:26:30.608 DEBUG 7490 --- [http-nio-3000-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:26:30.608 DEBUG 7490 --- [http-nio-3000-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:26:30.609 DEBUG 7490 --- [http-nio-3000-exec-6] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<com.dbtest.yashwith.response.ApiResponse> com.dbtest.yashwith.controller.TransactionController.getReportBetweenDate(java.util.Date,java.util.Date): Failed to convert value of type 'java.lang.String' to required type 'java.util.Date'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [@org.springframework.web.bind.annotation.RequestParam @org.springframework.format.annotation.DateTimeFormat java.util.Date] for value [2024-01-01]; nested exception is java.lang.IllegalArgumentException: Invalid format: "2024-01-01" is too short
-2024-01-11 11:26:30.609  WARN 7490 --- [http-nio-3000-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.util.Date'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [@org.springframework.web.bind.annotation.RequestParam @org.springframework.format.annotation.DateTimeFormat java.util.Date] for value [2024-01-01]; nested exception is java.lang.IllegalArgumentException: Invalid format: "2024-01-01" is too short]
-2024-01-11 11:26:30.609 DEBUG 7490 --- [http-nio-3000-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
-2024-01-11 11:26:30.609 DEBUG 7490 --- [http-nio-3000-exec-6] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:26:30.609 DEBUG 7490 --- [http-nio-3000-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
-2024-01-11 11:26:30.610 DEBUG 7490 --- [http-nio-3000-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:26:30.610 DEBUG 7490 --- [http-nio-3000-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Thu Jan 11 11:26:30 IST 2024, status=400, error=Bad Request, path=/transactions/report}]
-2024-01-11 11:26:30.610 DEBUG 7490 --- [http-nio-3000-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 400
-2024-01-11 11:29:42.202  WARN 7574 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:29:42.262  WARN 7574 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:29:42.543 ERROR 7574 --- [main] c.d.yashwith.security.SecurityConfig     : Reached the configure filter searching for something here
-2024-01-11 11:29:42.653 DEBUG 7574 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-11 11:29:42.699 DEBUG 7574 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
-2024-01-11 11:29:42.723 DEBUG 7574 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-11 11:29:42.732 DEBUG 7574 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-11 11:33:36.007  INFO 7574 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-11 11:33:36.008 DEBUG 7574 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-11 11:33:36.008 DEBUG 7574 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-11 11:33:36.008 DEBUG 7574 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-11 11:33:36.009 DEBUG 7574 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3b65084e
-2024-01-11 11:33:36.009 DEBUG 7574 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@135e49b2
-2024-01-11 11:33:36.009 DEBUG 7574 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-11 11:33:36.009  INFO 7574 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-01-11 11:33:36.024 DEBUG 7574 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:33:36.026 DEBUG 7574 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:33:36.144 DEBUG 7574 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:33:36.156 DEBUG 7574 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=350.0, totalDebit=0.0, totalCredit=350.0), view=nul (truncated)...]
-2024-01-11 11:33:36.166 DEBUG 7574 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:34:03.080 DEBUG 7574 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:34:03.081 DEBUG 7574 --- [http-nio-3000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:34:03.091 DEBUG 7574 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:34:03.091 DEBUG 7574 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=350.0, totalDebit=0.0, totalCredit=350.0), view=nul (truncated)...]
-2024-01-11 11:34:03.092 DEBUG 7574 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:34:04.625 DEBUG 7574 --- [http-nio-3000-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:34:04.625 DEBUG 7574 --- [http-nio-3000-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:34:04.634 DEBUG 7574 --- [http-nio-3000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:34:04.635 DEBUG 7574 --- [http-nio-3000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=350.0, totalDebit=0.0, totalCredit=350.0), view=nul (truncated)...]
-2024-01-11 11:34:04.638 DEBUG 7574 --- [http-nio-3000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:34:04.945 DEBUG 7574 --- [http-nio-3000-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:34:04.945 DEBUG 7574 --- [http-nio-3000-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:34:04.947 DEBUG 7574 --- [http-nio-3000-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:34:04.948 DEBUG 7574 --- [http-nio-3000-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=350.0, totalDebit=0.0, totalCredit=350.0), view=nul (truncated)...]
-2024-01-11 11:34:04.948 DEBUG 7574 --- [http-nio-3000-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:36:00.510  WARN 7618 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:36:00.579  WARN 7618 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:36:00.867 ERROR 7618 --- [main] c.d.yashwith.security.SecurityConfig     : Reached the configure filter searching for something here
-2024-01-11 11:36:00.976 DEBUG 7618 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-11 11:36:01.017 DEBUG 7618 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
-2024-01-11 11:36:01.028 DEBUG 7618 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-11 11:36:01.032 DEBUG 7618 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-11 11:36:04.710  INFO 7618 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-11 11:36:04.711 DEBUG 7618 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-11 11:36:04.711 DEBUG 7618 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-11 11:36:04.711 DEBUG 7618 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-11 11:36:04.712 DEBUG 7618 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@425b5fe2
-2024-01-11 11:36:04.712 DEBUG 7618 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5d2e6f62
-2024-01-11 11:36:04.712 DEBUG 7618 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-11 11:36:04.712  INFO 7618 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-11 11:36:04.726 DEBUG 7618 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:36:04.728 DEBUG 7618 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:36:04.839 DEBUG 7618 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:36:04.855 DEBUG 7618 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=350.0, totalDebit=0.0, totalCredit=350.0), view=nul (truncated)...]
-2024-01-11 11:36:04.864 DEBUG 7618 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:36:07.010 DEBUG 7618 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:36:07.011 DEBUG 7618 --- [http-nio-3000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:36:07.025 DEBUG 7618 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:36:07.025 DEBUG 7618 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=350.0, totalDebit=0.0, totalCredit=350.0), view=nul (truncated)...]
-2024-01-11 11:36:07.027 DEBUG 7618 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:37:16.960  WARN 7634 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:37:17.019  WARN 7634 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:37:17.291 ERROR 7634 --- [main] c.d.yashwith.security.SecurityConfig     : Reached the configure filter searching for something here
-2024-01-11 11:37:17.392 DEBUG 7634 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-11 11:37:17.432 DEBUG 7634 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
-2024-01-11 11:37:17.443 DEBUG 7634 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-11 11:37:17.447 DEBUG 7634 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-11 11:37:25.904  INFO 7634 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-11 11:37:25.905 DEBUG 7634 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-11 11:37:25.905 DEBUG 7634 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-11 11:37:25.905 DEBUG 7634 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-11 11:37:25.906 DEBUG 7634 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@11bdab37
-2024-01-11 11:37:25.906 DEBUG 7634 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@46e388ec
-2024-01-11 11:37:25.906 DEBUG 7634 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-11 11:37:25.906  INFO 7634 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-11 11:37:25.920 DEBUG 7634 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:37:25.923 DEBUG 7634 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:37:26.030 DEBUG 7634 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:37:26.041 DEBUG 7634 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=350.0, totalDebit=0.0, totalCredit=350.0), view=nul (truncated)...]
-2024-01-11 11:37:26.050 DEBUG 7634 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:37:43.010  WARN 7643 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:37:43.075  WARN 7643 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:37:43.344 ERROR 7643 --- [main] c.d.yashwith.security.SecurityConfig     : Reached the configure filter searching for something here
-2024-01-11 11:37:43.458 DEBUG 7643 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-11 11:37:43.506 DEBUG 7643 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
-2024-01-11 11:37:43.524 DEBUG 7643 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-11 11:37:43.531 DEBUG 7643 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-11 11:37:56.235  INFO 7643 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-11 11:37:56.235 DEBUG 7643 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-11 11:37:56.235 DEBUG 7643 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-11 11:37:56.235 DEBUG 7643 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-11 11:37:56.236 DEBUG 7643 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@14656be5
-2024-01-11 11:37:56.236 DEBUG 7643 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@2d4f67e
-2024-01-11 11:37:56.237 DEBUG 7643 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-11 11:37:56.237  INFO 7643 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-01-11 11:37:56.250 DEBUG 7643 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:37:56.252 DEBUG 7643 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:37:56.367 DEBUG 7643 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:37:56.378 DEBUG 7643 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=350.0, totalDebit=0.0, totalCredit=350.0), view=nul (truncated)...]
-2024-01-11 11:37:56.387 DEBUG 7643 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:40:48.118  WARN 7685 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:40:48.182  WARN 7685 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
-2024-01-11 11:40:48.461 ERROR 7685 --- [main] c.d.yashwith.security.SecurityConfig     : Reached the configure filter searching for something here
-2024-01-11 11:40:48.562 DEBUG 7685 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-01-11 11:40:48.604 DEBUG 7685 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
-2024-01-11 11:40:48.617 DEBUG 7685 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-01-11 11:40:48.621 DEBUG 7685 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-01-11 11:41:53.370  INFO 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-11 11:41:53.371 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-01-11 11:41:53.371 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-01-11 11:41:53.371 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-01-11 11:41:53.372 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@dae5e0
-2024-01-11 11:41:53.372 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@63dc3420
-2024-01-11 11:41:53.372 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-01-11 11:41:53.372  INFO 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-01-11 11:41:53.386 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:41:53.389 DEBUG 7685 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:41:53.501 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:41:53.511 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=350.0, totalDebit=0.0, totalCredit=350.0), view=nul (truncated)...]
-2024-01-11 11:41:53.520 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:42:43.461 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
-2024-01-11 11:42:43.462 DEBUG 7685 --- [http-nio-3000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
-2024-01-11 11:42:43.473 DEBUG 7685 --- [http-nio-3000-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=CREDIT, originalAmount=2000.0, currency=INR)]
-2024-01-11 11:42:43.542 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
-2024-01-11 11:42:43.544 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-01-11 11:42:44.300 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.web.client.RestTemplate              : Response 200 OK
-2024-01-11 11:42:44.303 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
-2024-01-11 11:42:44.360 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:42:44.360 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=659f86dcd2212f3459c53349, view=null, status=CREATED, error=null, erro (truncated)...]
-2024-01-11 11:42:44.361 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:43:37.157 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
-2024-01-11 11:43:37.157 DEBUG 7685 --- [http-nio-3000-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
-2024-01-11 11:43:37.158 DEBUG 7685 --- [http-nio-3000-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=CREDIT, originalAmount=200.0, currency=INR)]
-2024-01-11 11:43:37.159 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
-2024-01-11 11:43:37.159 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-01-11 11:43:37.725 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.web.client.RestTemplate              : Response 200 OK
-2024-01-11 11:43:37.728 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
-2024-01-11 11:43:37.743 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:43:37.743 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=659f8711d2212f3459c5334a, view=null, status=CREATED, error=null, erro (truncated)...]
-2024-01-11 11:43:37.744 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:43:41.117 DEBUG 7685 --- [http-nio-3000-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
-2024-01-11 11:43:41.117 DEBUG 7685 --- [http-nio-3000-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
-2024-01-11 11:43:41.118 DEBUG 7685 --- [http-nio-3000-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=CREDIT, originalAmount=150.0, currency=INR)]
-2024-01-11 11:43:41.119 DEBUG 7685 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
-2024-01-11 11:43:41.119 DEBUG 7685 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-01-11 11:43:41.513 DEBUG 7685 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : Response 200 OK
-2024-01-11 11:43:41.515 DEBUG 7685 --- [http-nio-3000-exec-5] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
-2024-01-11 11:43:41.529 DEBUG 7685 --- [http-nio-3000-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:43:41.530 DEBUG 7685 --- [http-nio-3000-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=659f8715d2212f3459c5334b, view=null, status=CREATED, error=null, erro (truncated)...]
-2024-01-11 11:43:41.531 DEBUG 7685 --- [http-nio-3000-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:43:47.084 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
-2024-01-11 11:43:47.085 DEBUG 7685 --- [http-nio-3000-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
-2024-01-11 11:43:47.085 DEBUG 7685 --- [http-nio-3000-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=CREDIT, originalAmount=350.0, currency=INR)]
-2024-01-11 11:43:47.086 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
-2024-01-11 11:43:47.086 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-01-11 11:43:47.657 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.web.client.RestTemplate              : Response 200 OK
-2024-01-11 11:43:47.658 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
-2024-01-11 11:43:47.674 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:43:47.674 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=659f871bd2212f3459c5334c, view=null, status=CREATED, error=null, erro (truncated)...]
-2024-01-11 11:43:47.675 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:43:57.211 DEBUG 7685 --- [http-nio-3000-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
-2024-01-11 11:43:57.212 DEBUG 7685 --- [http-nio-3000-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
-2024-01-11 11:43:57.212 DEBUG 7685 --- [http-nio-3000-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=CREDIT, originalAmount=120.0, currency=INR)]
-2024-01-11 11:43:57.213 DEBUG 7685 --- [http-nio-3000-exec-8] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
-2024-01-11 11:43:57.213 DEBUG 7685 --- [http-nio-3000-exec-8] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-01-11 11:43:57.822 DEBUG 7685 --- [http-nio-3000-exec-8] o.s.web.client.RestTemplate              : Response 200 OK
-2024-01-11 11:43:57.823 DEBUG 7685 --- [http-nio-3000-exec-8] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
-2024-01-11 11:43:57.837 DEBUG 7685 --- [http-nio-3000-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:43:57.838 DEBUG 7685 --- [http-nio-3000-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=659f8725d2212f3459c5334d, view=null, status=CREATED, error=null, erro (truncated)...]
-2024-01-11 11:43:57.840 DEBUG 7685 --- [http-nio-3000-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:44:06.025 DEBUG 7685 --- [http-nio-3000-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
-2024-01-11 11:44:06.025 DEBUG 7685 --- [http-nio-3000-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
-2024-01-11 11:44:06.025 DEBUG 7685 --- [http-nio-3000-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=DEBIT, originalAmount=950.0, currency=INR)]
-2024-01-11 11:44:06.026 DEBUG 7685 --- [http-nio-3000-exec-9] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
-2024-01-11 11:44:06.026 DEBUG 7685 --- [http-nio-3000-exec-9] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-01-11 11:44:06.587 DEBUG 7685 --- [http-nio-3000-exec-9] o.s.web.client.RestTemplate              : Response 200 OK
-2024-01-11 11:44:06.588 DEBUG 7685 --- [http-nio-3000-exec-9] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
-2024-01-11 11:44:06.611 DEBUG 7685 --- [http-nio-3000-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:44:06.611 DEBUG 7685 --- [http-nio-3000-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=659f872ed2212f3459c5334e, view=null, status=CREATED, error=null, erro (truncated)...]
-2024-01-11 11:44:06.612 DEBUG 7685 --- [http-nio-3000-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:44:13.176 DEBUG 7685 --- [http-nio-3000-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/transactions/makePayment", parameters={}
-2024-01-11 11:44:13.176 DEBUG 7685 --- [http-nio-3000-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#createNewTransaction(TransactionCreateRequest, String)
-2024-01-11 11:44:13.177 DEBUG 7685 --- [http-nio-3000-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [TransactionCreateRequest(role=ADMIN, transactionType=DEBIT, originalAmount=1200.0, currency=INR)]
-2024-01-11 11:44:13.177 DEBUG 7685 --- [http-nio-3000-exec-10] o.s.web.client.RestTemplate              : HTTP GET https://api.fxratesapi.com/latest?base=INR
-2024-01-11 11:44:13.177 DEBUG 7685 --- [http-nio-3000-exec-10] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
-2024-01-11 11:44:13.783 DEBUG 7685 --- [http-nio-3000-exec-10] o.s.web.client.RestTemplate              : Response 200 OK
-2024-01-11 11:44:13.784 DEBUG 7685 --- [http-nio-3000-exec-10] o.s.web.client.RestTemplate              : Reading to [com.dbtest.yashwith.model.transaction.ExchangeRates]
-2024-01-11 11:44:13.797 DEBUG 7685 --- [http-nio-3000-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:44:13.798 DEBUG 7685 --- [http-nio-3000-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=659f8735d2212f3459c5334f, view=null, status=CREATED, error=null, erro (truncated)...]
-2024-01-11 11:44:13.801 DEBUG 7685 --- [http-nio-3000-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:44:22.181 DEBUG 7685 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:44:22.182 DEBUG 7685 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:44:22.197 DEBUG 7685 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:44:22.198 DEBUG 7685 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=1020.0, totalDebit=2150.0, totalCredit=3170.0), vie (truncated)...]
-2024-01-11 11:44:22.198 DEBUG 7685 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:44:42.581 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:44:42.582 DEBUG 7685 --- [http-nio-3000-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:44:42.595 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:44:42.595 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=1970.0, totalDebit=1200.0, totalCredit=3170.0), vie (truncated)...]
-2024-01-11 11:44:42.597 DEBUG 7685 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:44:44.883 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:44:44.883 DEBUG 7685 --- [http-nio-3000-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:44:44.895 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:44:44.895 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=1970.0, totalDebit=1200.0, totalCredit=3170.0), vie (truncated)...]
-2024-01-11 11:44:44.897 DEBUG 7685 --- [http-nio-3000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:45:03.645 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-01&toDate=2024-01-31", parameters={masked}
-2024-01-11 11:45:03.646 DEBUG 7685 --- [http-nio-3000-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:45:03.660 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:45:03.660 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=3170.0, totalDebit=0.0, totalCredit=3170.0), view=n (truncated)...]
-2024-01-11 11:45:03.661 DEBUG 7685 --- [http-nio-3000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-01-11 11:46:07.790 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/transactions/report?fromDate=2024-01-10&toDate=2024-01-11", parameters={masked}
-2024-01-11 11:46:07.791 DEBUG 7685 --- [http-nio-3000-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.TransactionController#getReportBetweenDate(Date, Date)
-2024-01-11 11:46:07.803 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
-2024-01-11 11:46:07.803 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ApiResponse(success=true, data=ReportDTO(netFlow=150.0, totalDebit=0.0, totalCredit=150.0), view=nul (truncated)...]
-2024-01-11 11:46:07.803 DEBUG 7685 --- [http-nio-3000-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-23 11:55:27.839  WARN 2689 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 11:55:27.882  WARN 2689 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 11:55:28.100 ERROR 2689 --- [main] c.d.yashwith.security.SecurityConfig     : Reached the configure filter searching for something here
+2024-01-23 11:55:28.191 DEBUG 2689 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-01-23 11:55:28.223 DEBUG 2689 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 12 mappings in 'requestMappingHandlerMapping'
+2024-01-23 11:55:28.241 DEBUG 2689 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-01-23 11:55:28.248 DEBUG 2689 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-23 11:56:11.308  INFO 2689 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-23 11:56:11.309 DEBUG 2689 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-01-23 11:56:11.309 DEBUG 2689 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-01-23 11:56:11.309 DEBUG 2689 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-01-23 11:56:11.310 DEBUG 2689 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4a833595
+2024-01-23 11:56:11.310 DEBUG 2689 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@49986178
+2024-01-23 11:56:11.310 DEBUG 2689 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-01-23 11:56:11.310  INFO 2689 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-01-23 11:56:11.321 DEBUG 2689 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/v1/auth/create", parameters={}
+2024-01-23 11:56:11.323 DEBUG 2689 --- [http-nio-3000-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.dbtest.yashwith.controller.auth.AuthController#createUser(UserCreateRequest)
+2024-01-23 11:56:11.364 DEBUG 2689 --- [http-nio-3000-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [UserCreateRequest(firstName=Anup, lastName=Sirsikar, password=password, email=anup@gmail.com, countr (truncated)...]
+2024-01-23 11:56:11.588 DEBUG 2689 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2024-01-23 11:56:11.588 DEBUG 2689 --- [http-nio-3000-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [AuthResponse(user=UserProfile(firstName=Anup, lastName=Sirsikar, age=null, profilePicture=null, gend (truncated)...]
+2024-01-23 11:56:11.592 DEBUG 2689 --- [http-nio-3000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-23 12:20:44.564  WARN 3697 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 12:20:44.605  WARN 3697 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 12:20:44.754  WARN 3697 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionController' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/controller/TransactionController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.yashwith.frameworks.service.RateLimitingService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-01-23 12:20:44.760  WARN 3697 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [BufferPoolPruner-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-01-23 12:20:44.772 ERROR 3697 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.dbtest.yashwith.service.TransactionService required a bean of type 'org.yashwith.frameworks.service.RateLimitingService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.yashwith.frameworks.service.RateLimitingService' in your configuration.
+
+2024-01-23 12:30:06.535  WARN 3833 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 12:30:06.576  WARN 3833 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 12:30:06.723  WARN 3833 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionController' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/controller/TransactionController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.yashwith.frameworks.service.RateLimitingService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-01-23 12:30:06.729  WARN 3833 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [BufferPoolPruner-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-01-23 12:30:06.741 ERROR 3833 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.dbtest.yashwith.service.TransactionService required a bean of type 'org.yashwith.frameworks.service.RateLimitingService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.yashwith.frameworks.service.RateLimitingService' in your configuration.
+
+2024-01-23 12:33:20.247  WARN 3868 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 12:33:20.287  WARN 3868 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 12:33:20.454  WARN 3868 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionController' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/controller/TransactionController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisRateLimiterConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'rate-limiter.redis.endpoint' in value "${rate-limiter.redis.endpoint}"
+2024-01-23 12:33:20.461  WARN 3868 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [BufferPoolPruner-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-01-23 12:33:20.478 ERROR 3868 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionController' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/controller/TransactionController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisRateLimiterConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'rate-limiter.redis.endpoint' in value "${rate-limiter.redis.endpoint}"
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929) ~[spring-context-5.3.31.jar:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.31.jar:5.3.31]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) ~[spring-boot-2.7.18.jar:2.7.18]
+	at com.dbtest.yashwith.YashwithApplication.main(YashwithApplication.java:11) ~[main/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisRateLimiterConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'rate-limiter.redis.endpoint' in value "${rate-limiter.redis.endpoint}"
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisRateLimiterConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'rate-limiter.redis.endpoint' in value "${rate-limiter.redis.endpoint}"
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 33 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisRateLimiterConfig': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'rate-limiter.redis.endpoint' in value "${rate-limiter.redis.endpoint}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:414) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:405) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 47 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'rate-limiter.redis.endpoint' in value "${rate-limiter.redis.endpoint}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:180) ~[spring-core-5.3.31.jar:5.3.31]
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126) ~[spring-core-5.3.31.jar:5.3.31]
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:239) ~[spring-core-5.3.31.jar:5.3.31]
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210) ~[spring-core-5.3.31.jar:5.3.31]
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:191) ~[spring-context-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:936) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1332) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:710) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:693) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:408) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 68 common frames omitted
+
+2024-01-23 12:40:41.193  WARN 4005 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 12:40:41.234  WARN 4005 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 12:40:41.395  WARN 4005 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionController' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/controller/TransactionController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Unsatisfied dependency expressed through method 'proxyManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+2024-01-23 12:40:41.401  WARN 4005 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [BufferPoolPruner-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-01-23 12:40:41.420 ERROR 4005 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionController' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/controller/TransactionController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Unsatisfied dependency expressed through method 'proxyManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929) ~[spring-context-5.3.31.jar:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.31.jar:5.3.31]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) ~[spring-boot-2.7.18.jar:2.7.18]
+	at com.dbtest.yashwith.YashwithApplication.main(YashwithApplication.java:11) ~[main/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Unsatisfied dependency expressed through method 'proxyManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Unsatisfied dependency expressed through method 'proxyManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 33 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Unsatisfied dependency expressed through method 'proxyManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:536) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 47 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:633) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 61 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 75 common frames omitted
+Caused by: javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at javax.cache.Caching$CachingProviderRegistry.getCachingProvider(Caching.java:386) ~[cache-api-1.1.1.jar:na]
+	at javax.cache.Caching$CachingProviderRegistry.getCachingProvider(Caching.java:361) ~[cache-api-1.1.1.jar:na]
+	at javax.cache.Caching.getCachingProvider(Caching.java:151) ~[cache-api-1.1.1.jar:na]
+	at org.yashwith.frameworks.config.RedisRateLimiterConfig.cacheManager(RedisRateLimiterConfig.java:40) ~[rate_limiter-0.0.1-SNAPSHOT-plain.jar:na]
+	at org.yashwith.frameworks.config.RedisRateLimiterConfig$$EnhancerBySpringCGLIB$$80c4d659.CGLIB$cacheManager$1(<generated>) ~[rate_limiter-0.0.1-SNAPSHOT-plain.jar:na]
+	at org.yashwith.frameworks.config.RedisRateLimiterConfig$$EnhancerBySpringCGLIB$$80c4d659$$FastClassBySpringCGLIB$$b1677435.invoke(<generated>) ~[rate_limiter-0.0.1-SNAPSHOT-plain.jar:na]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.3.31.jar:5.3.31]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331) ~[spring-context-5.3.31.jar:5.3.31]
+	at org.yashwith.frameworks.config.RedisRateLimiterConfig$$EnhancerBySpringCGLIB$$80c4d659.cacheManager(<generated>) ~[rate_limiter-0.0.1-SNAPSHOT-plain.jar:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 76 common frames omitted
+
+2024-01-23 12:49:38.788  WARN 4069 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 12:49:38.836  WARN 4069 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type; You might want to check your annotation setup at the converter implementation
+2024-01-23 12:49:39.010  WARN 4069 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionController' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/controller/TransactionController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Unsatisfied dependency expressed through method 'proxyManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+2024-01-23 12:49:39.017  WARN 4069 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [BufferPoolPruner-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@11.0.20/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@11.0.20/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+ java.base@11.0.20/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@11.0.20/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+ java.base@11.0.20/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+ java.base@11.0.20/java.lang.Thread.run(Thread.java:834)
+2024-01-23 12:49:39.046 ERROR 4069 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionController' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/controller/TransactionController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Unsatisfied dependency expressed through method 'proxyManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929) ~[spring-context-5.3.31.jar:5.3.31]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.31.jar:5.3.31]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300) ~[spring-boot-2.7.18.jar:2.7.18]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289) ~[spring-boot-2.7.18.jar:2.7.18]
+	at com.dbtest.yashwith.YashwithApplication.main(YashwithApplication.java:11) ~[main/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'transactionService' defined in file [/Users/yashwanthdalva/Desktop/Spring XP/yashwith/build/classes/java/main/com/dbtest/yashwith/service/TransactionService.class]: Unsatisfied dependency expressed through constructor parameter 3; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Unsatisfied dependency expressed through method 'proxyManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'rateLimitingServiceImpl' defined in URL [jar:file:/Users/yashwanthdalva/.m2/repository/org/yashwith/frameworks/rate_limiter/0.0.1-SNAPSHOT/rate_limiter-0.0.1-SNAPSHOT-plain.jar!/org/yashwith/frameworks/service/RateLimitingServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Unsatisfied dependency expressed through method 'proxyManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 33 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'proxyManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Unsatisfied dependency expressed through method 'proxyManager' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:536) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 47 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cacheManager' defined in class path resource [org/yashwith/frameworks/config/RedisRateLimiterConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:633) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 61 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.cache.CacheManager]: Factory method 'cacheManager' threw exception; nested exception is javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.31.jar:5.3.31]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 75 common frames omitted
+Caused by: javax.cache.CacheException: Multiple CachingProviders have been configured when only a single CachingProvider is expected
+	at javax.cache.Caching$CachingProviderRegistry.getCachingProvider(Caching.java:386) ~[cache-api-1.1.1.jar:na]
+	at javax.cache.Caching$CachingProviderRegistry.getCachingProvider(Caching.java:361) ~[cache-api-1.1.1.jar:na]
+	at javax.cache.Caching.getCachingProvider(Caching.java:151) ~[cache-api-1.1.1.jar:na]
+	at org.yashwith.frameworks.config.RedisRateLimiterConfig.cacheManager(RedisRateLimiterConfig.java:40) ~[rate_limiter-0.0.1-SNAPSHOT-plain.jar:na]
+	at org.yashwith.frameworks.config.RedisRateLimiterConfig$$EnhancerBySpringCGLIB$$600bea78.CGLIB$cacheManager$2(<generated>) ~[rate_limiter-0.0.1-SNAPSHOT-plain.jar:na]
+	at org.yashwith.frameworks.config.RedisRateLimiterConfig$$EnhancerBySpringCGLIB$$600bea78$$FastClassBySpringCGLIB$$8d2741ff.invoke(<generated>) ~[rate_limiter-0.0.1-SNAPSHOT-plain.jar:na]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.3.31.jar:5.3.31]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331) ~[spring-context-5.3.31.jar:5.3.31]
+	at org.yashwith.frameworks.config.RedisRateLimiterConfig$$EnhancerBySpringCGLIB$$600bea78.cacheManager(<generated>) ~[rate_limiter-0.0.1-SNAPSHOT-plain.jar:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.31.jar:5.3.31]
+	... 76 common frames omitted
+

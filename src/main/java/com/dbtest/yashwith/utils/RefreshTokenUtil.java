@@ -12,7 +12,6 @@ import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-
 // TODO: Handle multiple refresh token existing for a single user.
 @Component
 public class RefreshTokenUtil {
