@@ -22,10 +22,10 @@ import org.yashwith.frameworks.service.RateLimitingService;
 @Service
 @Slf4j
 public class TransactionService {
-    private TransactionRepository transactionRepository;
-    private TokenUtils tokenUtils;
-    private RestTemplate restTemplate;
-    private RateLimitingService rateLimitingService;
+    private final TransactionRepository transactionRepository;
+    private final TokenUtils tokenUtils;
+    private final RestTemplate restTemplate;
+    private final RateLimitingService rateLimitingService;
 
     public TransactionService(
             TransactionRepository transactionRepository,
@@ -41,7 +41,7 @@ public class TransactionService {
     public ApiResponse getAllTransactions() {
         ApiResponse apiResponse = new ApiResponse();
 
-        if (!rateLimitingService.isRateLimitBreached("JWT")) {
+        if (rateLimitingService.isRateLimitBreached("JWT")) {
             apiResponse.setErrorCode("429");
             apiResponse.setSuccess(false);
             apiResponse.setStatus("TOO MANY REQUESTS");
@@ -110,6 +110,14 @@ public class TransactionService {
      * @return reportDTO.
      */
     public ApiResponse getReportBetweenDates(Date startDate, Date endDate) {
+        ApiResponse apiResponse = new ApiResponse();
+        if (rateLimitingService.isRateLimitBreached("JWT")) {
+            apiResponse.setErrorCode("429");
+            apiResponse.setSuccess(false);
+            apiResponse.setStatus("TOO MANY REQUESTS");
+            return apiResponse;
+        }
+
         ReportDTO reportDTO = new ReportDTO();
         List<Transaction> transactions =
                 transactionRepository.findByCreatedAtBetween(startDate, endDate);
@@ -117,7 +125,6 @@ public class TransactionService {
         reportDTO.setTotalCredit(getTotalCashFlow(transactions, TransactionType.CREDIT));
         reportDTO.setNetFlow(reportDTO.getTotalCredit() - reportDTO.getTotalDebit());
 
-        ApiResponse apiResponse = new ApiResponse();
         apiResponse.setStatus("SUCCESS");
         apiResponse.setErrorCode("200");
         apiResponse.setData(reportDTO);
