@@ -22,6 +22,7 @@ import org.yashwith.frameworks.service.RateLimitingService;
 @Service
 @Slf4j
 public class TransactionService {
+  
     private final TransactionRepository transactionRepository;
     private final TokenUtils tokenUtils;
     private final RestTemplate restTemplate;
@@ -145,13 +146,18 @@ public class TransactionService {
     }
 
     public double getCurrentExchangeForCurrency(String countryCode) {
+        // TODO : Use this from application.properties
         String apiUrl = "https://api.fxratesapi.com/latest?base=INR";
-        ExchangeRates exchangeRates = restTemplate.getForObject(apiUrl, ExchangeRates.class);
-
-        if (exchangeRates != null) {
-            return exchangeRates.getExchangeRates(countryCode);
-        } else {
-            return 0.0;
+        try{
+            ExchangeRates exchangeRates = fixedRateService.getFixedRate(apiUrl);
+            if (exchangeRates != null) {
+                return exchangeRates.getExchangeRates(countryCode);
+            } else {
+                throw new RuntimeException("Unable to do currency conversion");
+            }
+        } catch (Exception e) {
+            log.error("Invalid response or missing currency: {}", e);
+            throw new RuntimeException(e.getMessage());
         }
     }
 

@@ -17,7 +17,7 @@ configurations {
 
 spotless {
 	java {
-//        googleJavaFormat()
+    // googleJavaFormat()
 		// optional: you can specify a specific version (>= 1.8) and/or switch to AOSP style
 		//   and/or reflow long strings
 		//   and/or use custom group artifact (you probably don't need this)
@@ -57,6 +57,13 @@ dependencies {
 	implementation 'com.opencsv:opencsv:5.9'
 	implementation 'com.google.guava:guava:32.0.1-jre'
 	implementation 'joda-time:joda-time:2.10.10'
+
+	// redis
+	//implementation 'org.redisson:redisson-spring-boot-starter:2.15.2'
+	//implementation group: 'com.giffing.bucket4j.spring.boot.starter', name: 'bucket4j-spring-boot-starter', version: '0.6.0'
+	implementation 'com.bucket4j:bucket4j-core:8.7.0'
+	implementation 'com.bucket4j:bucket4j-jcache:8.7.0'
+	implementation 'org.redisson:redisson:2.15.2'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'

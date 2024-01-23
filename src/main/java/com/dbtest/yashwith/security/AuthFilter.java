@@ -1,5 +1,6 @@
 package com.dbtest.yashwith.security;
 
+import com.dbtest.yashwith.config.RateLimitConfig;
 import com.dbtest.yashwith.exception.TokenException;
 import com.dbtest.yashwith.response.ApiResponse;
 import com.dbtest.yashwith.utils.DateUtil;
@@ -7,6 +8,7 @@ import com.dbtest.yashwith.utils.RefreshTokenUtil;
 import com.dbtest.yashwith.utils.SystemUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.istack.NotNull;
+import io.github.bucket4j.Bucket;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
 import java.io.IOException;
@@ -36,8 +38,8 @@ public class AuthFilter extends OncePerRequestFilter {
 
     private final TokenUtils tokenUtils;
     private final UserInfoService userInfoService;
-    private final HttpServletRequest httpServletRequest;
     private final RefreshTokenUtil refreshTokenUtil;
+    private final RateLimitConfig rateLimitConfig;
 
     @Value("#{'${urls.exclude.filter}'.split(',')}")
     List<String> excludeFilter;
@@ -46,6 +48,7 @@ public class AuthFilter extends OncePerRequestFilter {
     private String authSessionIdDate;
 
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
+
 
     /**
      * Auth filter
@@ -101,17 +104,24 @@ public class AuthFilter extends OncePerRequestFilter {
                     throw new TokenException("InvalidToken", "User forced logged out", "403");
                 }
 
-                // Adding authentication to security context.
-                UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(
-                                userDetails, null, userDetails.getAuthorities());
+                Bucket bucket = rateLimitConfig.resolveBucket("SER");
+                if (bucket.tryConsume(1)) {
+                    // Adding authentication to security context.
+                    UsernamePasswordAuthenticationToken authentication =
+                            new UsernamePasswordAuthenticationToken(
+                                    userDetails, null, userDetails.getAuthorities());
 
-                // Convert HttpServletRequest to WebAuthenticationDetails class.
-                authentication.setDetails(
-                        new WebAuthenticationDetailsSource().buildDetails(request));
+                    // Convert HttpServletRequest to WebAuthenticationDetails class.
+                    authentication.setDetails(
+                            new WebAuthenticationDetailsSource().buildDetails(request));
 
-                // Stores principal, credentials and authorities.
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                    // Stores principal, credentials and authorities.
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
+                else{
+                    response.setStatus(429);
+                    return;
+                }
             }
             filterChain.doFilter(request, response);
 
@@ -210,45 +220,6 @@ public class AuthFilter extends OncePerRequestFilter {
     }
 
     /**
-     * Get JWT token from the html header.
-     *
-     * @param request - api request
-     * @return JWT token(if available else empty string)
-     */
-    private String getJwtFromHeader(HttpServletRequest request) {
-        final String authHeader = request.getHeader("Authorization");
-        if (!StringUtils.hasText(authHeader) || !authHeader.startsWith("Bearer ")) {
-            return "";
-        }
-        return authHeader.substring(7);
-    }
-
-    private void createErrorApiResponse(ApiResponse apiResponse, HttpServletResponse response)
-            throws IOException {
-        response.setContentType("application/json;charset=UTF-8");
-        try {
-            response.setStatus(Integer.parseInt(apiResponse.getErrorCode()));
-        } catch (Exception e) {
-            log.error("exception in converting error code to status returning error code " + 403);
-            response.setStatus(403);
-        }
-        ObjectMapper mapper = SystemUtils.getInstance().getObjectMapper();
-        response.getWriter().write(mapper.writeValueAsString(apiResponse));
-    }
-
-    private void createErrorResponse(
-            String errorCode, String errorMessage, String message, HttpServletResponse response)
-            throws IOException {
-        ApiResponse apiResponse = new ApiResponse();
-        apiResponse.setSuccess(false);
-        apiResponse.setErrorCode(errorCode);
-        apiResponse.setErrorMessage(errorMessage);
-        apiResponse.setData(message);
-        response.setContentType("application/json;charset=UTF-8");
-        createErrorApiResponse(apiResponse, response);
-    }
-
-    /**
      * Logout of the app. Use jwt token to get SessionId and delete from mongo repository.
      *
      * @param request - request
@@ -288,4 +259,56 @@ public class AuthFilter extends OncePerRequestFilter {
         apiResponse.setErrorCode("200");
         return apiResponse;
     }
+
+    /**
+     * Get JWT token from the html header.
+     *
+     * @param request - api request
+     * @return JWT token(if available else empty string)
+     */
+    private String getJwtFromHeader(HttpServletRequest request) {
+        final String authHeader = request.getHeader("Authorization");
+        if (!StringUtils.hasText(authHeader) || !authHeader.startsWith("Bearer ")) {
+            return "";
+        }
+        return authHeader.substring(7);
+    }
+
+    /**
+     * Create a new error api response.
+     * @param apiResponse
+     * @param response
+     * @throws IOException
+     */
+    private void createErrorApiResponse(ApiResponse apiResponse, HttpServletResponse response)
+            throws IOException {
+        response.setContentType("application/json;charset=UTF-8");
+        try {
+            response.setStatus(Integer.parseInt(apiResponse.getErrorCode()));
+        } catch (Exception e) {
+            log.error("exception in converting error code to status returning error code " + 403);
+            response.setStatus(403);
+        }
+        ObjectMapper mapper = SystemUtils.getInstance().getObjectMapper();
+        response.getWriter().write(mapper.writeValueAsString(apiResponse));
+    }
+
+    private void createErrorResponse(
+            String errorCode, String errorMessage, String message, HttpServletResponse response)
+            throws IOException {
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setSuccess(false);
+        apiResponse.setErrorCode(errorCode);
+        apiResponse.setErrorMessage(errorMessage);
+        apiResponse.setData(message);
+        response.setContentType("application/json;charset=UTF-8");
+        createErrorApiResponse(apiResponse, response);
+    }
+
+    // TODO: Connect it to TOO MANY REQUESTS.
+    private void createBucketFillResponse(
+            ApiResponse apiResponse, HttpServletResponse response) throws IOException {
+
+    }
+
 }
