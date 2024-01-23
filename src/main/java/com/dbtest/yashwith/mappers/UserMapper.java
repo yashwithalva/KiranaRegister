@@ -21,13 +21,12 @@ public interface UserMapper {
     @Mapping(target = "phoneNumber", source = "phoneNumber")
     User requestToUser(UserCreateRequest userCreateRequest);
 
-
-    @Mapping(target = "firstName", source="firstName")
-    @Mapping(target = "lastName", source="lastName")
-    @Mapping(target = "age", source="age")
-    @Mapping(target = "profilePicture", source="profilePicture")
-    @Mapping(target = "gender", source="gender")
-    @Mapping(target = "phoneNumber", source="phoneNumber")
-    @Mapping(target = "createdAt", expression ="java(user.getCreatedAt().getTime())")
+    @Mapping(target = "firstName", source = "firstName")
+    @Mapping(target = "lastName", source = "lastName")
+    @Mapping(target = "age", source = "age")
+    @Mapping(target = "profilePicture", source = "profilePicture")
+    @Mapping(target = "gender", source = "gender")
+    @Mapping(target = "phoneNumber", source = "phoneNumber")
+    @Mapping(target = "createdAt", expression = "java(user.getCreatedAt().getTime())")
     UserProfile userToUserProfile(User user);
 }

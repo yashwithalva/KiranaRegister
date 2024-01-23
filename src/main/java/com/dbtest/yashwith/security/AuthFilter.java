@@ -1,6 +1,5 @@
 package com.dbtest.yashwith.security;
 
-import com.dbtest.yashwith.config.RateLimitConfig;
 import com.dbtest.yashwith.exception.TokenException;
 import com.dbtest.yashwith.response.ApiResponse;
 import com.dbtest.yashwith.utils.DateUtil;
@@ -8,7 +7,6 @@ import com.dbtest.yashwith.utils.RefreshTokenUtil;
 import com.dbtest.yashwith.utils.SystemUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.istack.NotNull;
-import io.github.bucket4j.Bucket;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
 import java.io.IOException;
@@ -21,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.ThreadContext;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,7 +26,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
-import org.springframework.util.AutoPopulatingList;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -41,7 +37,6 @@ public class AuthFilter extends OncePerRequestFilter {
     private final TokenUtils tokenUtils;
     private final UserInfoService userInfoService;
     private final RefreshTokenUtil refreshTokenUtil;
-    private final RateLimitConfig rateLimitConfig;
 
     @Value("#{'${urls.exclude.filter}'.split(',')}")
     List<String> excludeFilter;
@@ -99,7 +94,6 @@ public class AuthFilter extends OncePerRequestFilter {
                 boolean eligibleForSessionCheck =
                         tokenUtils.extractIssuedAt(jwt).after(sessionCheckDate);
 
-
                 // TODO : Check refresh token existence once REDIS connected.
                 if (eligibleForSessionCheck
                         && !refreshTokenUtil.isSessionValid(userInfo.getUserId())) {
@@ -107,24 +101,17 @@ public class AuthFilter extends OncePerRequestFilter {
                     throw new TokenException("InvalidToken", "User forced logged out", "403");
                 }
 
-                Bucket bucket = rateLimitConfig.resolveBucket("SER");
-                if (bucket.tryConsume(1)) {
-                    // Adding authentication to security context.
-                    UsernamePasswordAuthenticationToken authentication =
-                            new UsernamePasswordAuthenticationToken(
-                                    userDetails, null, userDetails.getAuthorities());
+                // Adding authentication to security context.
+                UsernamePasswordAuthenticationToken authentication =
+                        new UsernamePasswordAuthenticationToken(
+                                userDetails, null, userDetails.getAuthorities());
 
-                    // Convert HttpServletRequest to WebAuthenticationDetails class.
-                    authentication.setDetails(
-                            new WebAuthenticationDetailsSource().buildDetails(request));
+                // Convert HttpServletRequest to WebAuthenticationDetails class.
+                authentication.setDetails(
+                        new WebAuthenticationDetailsSource().buildDetails(request));
 
-                    // Stores principal, credentials and authorities.
-                    SecurityContextHolder.getContext().setAuthentication(authentication);
-                }
-                else{
-                    response.setStatus(429);
-                    return;
-                }
+                // Stores principal, credentials and authorities.
+                SecurityContextHolder.getContext().setAuthentication(authentication);
             }
             filterChain.doFilter(request, response);
 
@@ -134,11 +121,14 @@ public class AuthFilter extends OncePerRequestFilter {
         } catch (TokenException e) {
             log.error(
                     "$ Token exception "
-                            + " " + e.getApiResponse().getError() + " "
+                            + " "
+                            + e.getApiResponse().getError()
+                            + " "
                             + request.getRequestURI()
                             + " returning error code "
                             + 403
-                            + " " + e.getMessage());
+                            + " "
+                            + e.getMessage());
             var apiResponse = e.getApiResponse();
             createErrorResponse(apiResponse.getErrorCode(), apiResponse.getError(), null, response);
         } catch (JwtException e) {
@@ -175,14 +165,19 @@ public class AuthFilter extends OncePerRequestFilter {
                 message = "Invalid JWT token submitted";
             }
             createErrorResponse(errorCode, message, message, response);
-        } catch(ServletException e){
-            log.error("Servlet exception "
-                + request.getRequestURI()
-                + " returning error code"
-                + 403
-                + e.getMessage());
+        } catch (ServletException e) {
+            log.error(
+                    "Servlet exception "
+                            + request.getRequestURI()
+                            + " returning error code"
+                            + 403
+                            + e.getMessage());
             var apiResponse = new ApiResponse();
-            createErrorResponse(apiResponse.getErrorCode(), "Exception by servlet", "Auth Filter Exception", response);
+            createErrorResponse(
+                    apiResponse.getErrorCode(),
+                    "Exception by servlet",
+                    "Auth Filter Exception",
+                    response);
         } catch (Exception e) {
             log.error(
                     "Token exception "
@@ -206,7 +201,6 @@ public class AuthFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         // TODO : Needs refactoring using antPathMatcher
-
         String path = request.getRequestURI();
         boolean isCreate = path.equals("/api/v1/auth/create");
         boolean isLogin = path.equals("/api/v1/auth/login");
