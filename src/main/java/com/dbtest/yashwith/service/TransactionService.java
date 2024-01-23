@@ -1,7 +1,5 @@
 package com.dbtest.yashwith.service;
 
-import antlr.Token;
-import com.dbtest.yashwith.controller.TransactionController;
 import com.dbtest.yashwith.entities.Transaction;
 import com.dbtest.yashwith.enums.TransactionType;
 import com.dbtest.yashwith.mappers.TransactionMapper;
@@ -15,13 +13,11 @@ import com.dbtest.yashwith.security.TokenUtils;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 import org.yashwith.frameworks.service.RateLimitingService;
-import org.yashwith.frameworks.service.RateLimitingServiceImpl;
 
 @Service
 @Slf4j
@@ -35,7 +31,7 @@ public class TransactionService {
             TransactionRepository transactionRepository,
             TokenUtils tokenUtils,
             RestTemplate restTemplate,
-            RateLimitingService rateLimitingService){
+            RateLimitingService rateLimitingService) {
         this.transactionRepository = transactionRepository;
         this.restTemplate = restTemplate;
         this.tokenUtils = tokenUtils;
@@ -45,7 +41,7 @@ public class TransactionService {
     public ApiResponse getAllTransactions() {
         ApiResponse apiResponse = new ApiResponse();
 
-        if(!rateLimitingService.isRateLimitBreached("JWT")){
+        if (!rateLimitingService.isRateLimitBreached("JWT")) {
             apiResponse.setErrorCode("429");
             apiResponse.setSuccess(false);
             apiResponse.setStatus("TOO MANY REQUESTS");
