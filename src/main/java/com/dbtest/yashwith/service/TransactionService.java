@@ -146,17 +146,16 @@ public class TransactionService {
     }
 
     public double getCurrentExchangeForCurrency(String countryCode) {
-        // TODO : Use this from application.properties
         String apiUrl = "https://api.fxratesapi.com/latest?base=INR";
         try{
-            ExchangeRates exchangeRates = fixedRateService.getFixedRate(apiUrl);
+            ExchangeRates exchangeRates = restTemplate.getForObject(apiUrl, ExchangeRates.class);
             if (exchangeRates != null) {
                 return exchangeRates.getExchangeRates(countryCode);
             } else {
                 throw new RuntimeException("Unable to do currency conversion");
             }
         } catch (Exception e) {
-            log.error("Invalid response or missing currency: {}", e);
+            log.error("Invalid response or missing currency: {0}", e);
             throw new RuntimeException(e.getMessage());
         }
     }
