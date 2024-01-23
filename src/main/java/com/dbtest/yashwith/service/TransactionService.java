@@ -10,27 +10,45 @@ import com.dbtest.yashwith.model.transaction.TransactionDto;
 import com.dbtest.yashwith.repository.TransactionRepository;
 import com.dbtest.yashwith.response.ApiResponse;
 import com.dbtest.yashwith.security.TokenUtils;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
+import org.yashwith.frameworks.service.RateLimitingService;
 
 @Service
-@AllArgsConstructor
 @Slf4j
 public class TransactionService {
-    private TransactionRepository transactionRepository;
-    private TokenUtils tokenUtils;
-    private FixedRateService fixedRateService;
+  
+    private final TransactionRepository transactionRepository;
+    private final TokenUtils tokenUtils;
+    private final RestTemplate restTemplate;
+    private final RateLimitingService rateLimitingService;
 
-    public List<TransactionDto> getAllTransactions() {
+    public TransactionService(
+            TransactionRepository transactionRepository,
+            TokenUtils tokenUtils,
+            RestTemplate restTemplate,
+            RateLimitingService rateLimitingService) {
+        this.transactionRepository = transactionRepository;
+        this.restTemplate = restTemplate;
+        this.tokenUtils = tokenUtils;
+        this.rateLimitingService = rateLimitingService;
+    }
+
+    public ApiResponse getAllTransactions() {
+        ApiResponse apiResponse = new ApiResponse();
+
+        if (rateLimitingService.isRateLimitBreached("JWT")) {
+            apiResponse.setErrorCode("429");
+            apiResponse.setSuccess(false);
+            apiResponse.setStatus("TOO MANY REQUESTS");
+            return apiResponse;
+        }
+
         List<TransactionDto> transactionDtos = new ArrayList<>();
         transactionRepository
                 .findAll()
@@ -39,7 +57,11 @@ public class TransactionService {
                             transactionDtos.add(
                                     TransactionMapper.INSTANCE.transactionToDto(transaction));
                         });
-        return transactionDtos;
+        apiResponse.setData(transactionDtos);
+        apiResponse.setSuccess(true);
+        apiResponse.setStatus("SUCCESS");
+        apiResponse.setErrorCode("200");
+        return apiResponse;
     }
 
     /**
@@ -61,18 +83,18 @@ public class TransactionService {
         transaction.setUserId(tokenUtils.extractUserId(token));
         double exchangeRate = getCurrentExchangeForCurrency(transaction.getCurrency().toString());
         transaction.setAmount(transaction.getOriginalAmount() / exchangeRate);
-        transaction.setCreatedAt(new Date());;
+        transaction.setCreatedAt(new Date());
+        ;
         log.debug(transaction.toString());
         String transactionId = transactionRepository.save(transaction).getId();
         System.out.println("Transaction Id: " + transactionId);
 
-        if(StringUtils.hasText(transactionId)){
+        if (StringUtils.hasText(transactionId)) {
             apiResponse.setSuccess(true);
             apiResponse.setErrorCode("201");
             apiResponse.setData(transactionId);
             apiResponse.setStatus("CREATED");
-        }
-        else{
+        } else {
             apiResponse.setSuccess(false);
             apiResponse.setErrorMessage("429");
             apiResponse.setStatus("TOO MANY REQUESTS");
@@ -81,36 +103,45 @@ public class TransactionService {
         return apiResponse;
     }
 
-
     /**
      * Generate report between start and end-date.
+     *
      * @param startDate
      * @param endDate
      * @return reportDTO.
      */
-    public ApiResponse getReportBetweenDates(Date startDate, Date endDate){
+    public ApiResponse getReportBetweenDates(Date startDate, Date endDate) {
+        ApiResponse apiResponse = new ApiResponse();
+        if (rateLimitingService.isRateLimitBreached("JWT")) {
+            apiResponse.setErrorCode("429");
+            apiResponse.setSuccess(false);
+            apiResponse.setStatus("TOO MANY REQUESTS");
+            return apiResponse;
+        }
+
         ReportDTO reportDTO = new ReportDTO();
-        List<Transaction> transactions = transactionRepository.findByCreatedAtBetween(startDate, endDate);
+        List<Transaction> transactions =
+                transactionRepository.findByCreatedAtBetween(startDate, endDate);
         reportDTO.setTotalDebit(getTotalCashFlow(transactions, TransactionType.DEBIT));
         reportDTO.setTotalCredit(getTotalCashFlow(transactions, TransactionType.CREDIT));
         reportDTO.setNetFlow(reportDTO.getTotalCredit() - reportDTO.getTotalDebit());
 
-        ApiResponse apiResponse = new ApiResponse();
         apiResponse.setStatus("SUCCESS");
         apiResponse.setErrorCode("200");
         apiResponse.setData(reportDTO);
         return apiResponse;
     }
 
-
     /**
      * Generate detailed report between start and end-date
+     *
      * @param startDate
      * @param endDate
      * @return DetailedReportDTO
      */
-    public ApiResponse getDetailedReportBetween(Date startDate, Date endDate){
-        List<Transaction> transactions = transactionRepository.findByCreatedAtBetween(startDate, endDate);
+    public ApiResponse getDetailedReportBetween(Date startDate, Date endDate) {
+        List<Transaction> transactions =
+                transactionRepository.findByCreatedAtBetween(startDate, endDate);
         return null;
     }
 
@@ -130,10 +161,10 @@ public class TransactionService {
         }
     }
 
-    private double getTotalCashFlow(List<Transaction> transactions, TransactionType type){
+    private double getTotalCashFlow(List<Transaction> transactions, TransactionType type) {
         double answer = 0;
         for (int i = 0; i < transactions.size(); i++) {
-            if(transactions.get(i).getTransactionType() == type){
+            if (transactions.get(i).getTransactionType() == type) {
                 answer += transactions.get(i).getAmount();
             }
         }

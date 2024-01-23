@@ -17,7 +17,7 @@ configurations {
 
 spotless {
 	java {
-//        googleJavaFormat()
+    // googleJavaFormat()
 		// optional: you can specify a specific version (>= 1.8) and/or switch to AOSP style
 		//   and/or reflow long strings
 		//   and/or use custom group artifact (you probably don't need this)
@@ -25,7 +25,16 @@ spotless {
 	}
 }
 
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
 dependencies {
+	// Personal
+	// implementation 'org.yashwith.frameworks:yash:api_rate_limiter:0.0.2-SNAPSHOT'
+	implementation 'org.yashwith.frameworks:rate_limiter:0.0.1-SNAPSHOT'
+
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -58,13 +67,7 @@ dependencies {
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-
-
 }
-repositories {
-	mavenCentral()
-}
-
 
 tasks.named('test') {
 	useJUnitPlatform()
